@@ -1,0 +1,114 @@
+package dao;
+
+import model.Product;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProductDAO {
+    private final static Connection connection = ConnectMySql.getConnection();
+    private static PreparedStatement preparedStatement;
+
+    public static List<Product> findAll() {
+        String sqlGetAll = "SELECT * FROM product";
+
+        try {
+            preparedStatement = connection.prepareStatement(sqlGetAll);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Product> productList = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
+                String name = resultSet.getString("name_product");
+                Double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String motasp = resultSet.getString("motasp");
+                boolean status = resultSet.getBoolean("status");
+                String img = resultSet.getString("img");
+
+                productList.add(new Product(id,name,price,quantity,motasp,status,img));
+            }
+            return productList;
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static void saveProduct(Product product) {
+        String saveSQL = "INSERT INTO product(name_product,price,status,quantity,motasp,img) VALUE (?,?,?,?,?,?)";
+
+        try {
+            preparedStatement = connection.prepareStatement(saveSQL);
+            preparedStatement.setString(1,product.getName());
+            preparedStatement.setDouble(2,product.getPrice());
+            preparedStatement.setBoolean(3,product.isStatus());
+            preparedStatement.setInt(4,product.getQuantity());
+            preparedStatement.setString(5,product.getMotasp());
+            preparedStatement.setString(6,product.getImg());
+            preparedStatement.execute();
+
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+    }
+
+    public static void deleteProduct(int id){
+        String deleteSQL = "DELETE from product where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(deleteSQL);
+            preparedStatement.setInt(1,id);
+            preparedStatement.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void editProduct(int id, Product product) {
+        String editSQL = "UPDATE product set name_product=?, price=?, status=?, quantity=?, motasp=?, img=? where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(editSQL);
+
+            preparedStatement.setString(1,product.getName());
+            preparedStatement.setDouble(2,product.getPrice());
+            preparedStatement.setBoolean(3,product.isStatus());
+            preparedStatement.setInt(4,product.getQuantity());
+            preparedStatement.setString(5,product.getMotasp());
+            preparedStatement.setString(6,product.getImg());
+            preparedStatement.setInt(7,id);
+
+            preparedStatement.execute();
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+    }
+
+    public static Product findProductById(int id) {
+        String sqlFindById = "SELECT name_product,price,status,quantity,motasp,img FROM product where id=?";
+        Product product = null;
+        try {
+            preparedStatement = connection.prepareStatement(sqlFindById);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            preparedStatement.setInt(1,id);
+            while (resultSet.next()) {
+                String name = resultSet.getString("name_product");
+                Double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String motasp = resultSet.getString("motasp");
+                boolean status = resultSet.getBoolean("status");
+                String img = resultSet.getString("img");
+
+                product = new Product(id,name,price,quantity,motasp,status,img);
+            }
+
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+        return product;
+    }
+}
