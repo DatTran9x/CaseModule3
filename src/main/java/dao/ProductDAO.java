@@ -2,10 +2,7 @@ package dao;
 
 import model.Product;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,27 +85,30 @@ public class ProductDAO {
         }
     }
 
-    public static Product findProductById(int id) {
-        String sqlFindById = "SELECT name_product,price,status,quantity,motasp,img FROM product where id=?";
-        Product product = null;
+    public static List<Product> findProductByName(String nameFind) {
+        String sqlFindById = "SELECT product.*, category.name_category as category FROM casemodule3.product join category on product.id_category = category.id_category\n" +
+                "where product.name_product like '%"+nameFind+"%\'";
         try {
-            preparedStatement = connection.prepareStatement(sqlFindById);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            preparedStatement.setInt(1,id);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sqlFindById);
+            List<Product> productList = new ArrayList<>();
             while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
                 String name = resultSet.getString("name_product");
                 Double price = resultSet.getDouble("price");
                 int quantity = resultSet.getInt("quantity");
                 String motasp = resultSet.getString("motasp");
                 boolean status = resultSet.getBoolean("status");
                 String img = resultSet.getString("img");
+                int idCategory = resultSet.getInt("idCategory");
 
-                product = new Product(id,name,price,quantity,motasp,status,img);
+                productList.add(new Product(id,name,price,quantity,motasp,status,img,idCategory));
             }
+            return productList;
 
         } catch (SQLException throwAbles) {
             throwAbles.printStackTrace();
         }
-        return product;
+        return null;
     }
 }

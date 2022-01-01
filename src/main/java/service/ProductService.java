@@ -26,8 +26,8 @@ public class ProductService {
         ProductDAO.deleteProduct(id);
     }
 
-    public Product findProductById(int id) {
-        return ProductDAO.findProductById(id);
+    public List<Product> findProductByName(String nameFind) {
+        return ProductDAO.findProductByName(nameFind);
     }
 
     public Product findById(int id) {
