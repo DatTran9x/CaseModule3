@@ -2,24 +2,23 @@ package model;
 
 public class Product {
     private int id;
-    private int idCategory;
     private String name;
     private double price;
-    private boolean status;
     private int quantity;
-    private String description;
+    private String motasp;
+    private boolean status;
     private String img;
 
     public Product() {
     }
 
-    public Product(String name, double price, boolean status, int quantity, String description, String img, int idCategory) {
-        this.idCategory = idCategory;
+    public Product(int id, String name, double price, int quantity, String motasp, boolean status, String img) {
+        this.id = id;
         this.name = name;
         this.price = price;
-        this.status = status;
         this.quantity = quantity;
-        this.description = description;
+        this.motasp = motasp;
+        this.status = status;
         this.img = img;
     }
 
@@ -29,14 +28,6 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdCategory() {
-        return idCategory;
-    }
-
-    public void setIdCategory(int idCategory) {
-        this.idCategory = idCategory;
     }
 
     public String getName() {
@@ -55,14 +46,6 @@ public class Product {
         this.price = price;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -71,12 +54,20 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMotasp() {
+        return motasp;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setMotasp(String motasp) {
+        this.motasp = motasp;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public String getImg() {

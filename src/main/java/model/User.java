@@ -3,20 +3,19 @@ package model;
 public class User {
     private int id;
     private String name;
-    private String phoneNumber;
-    private String username;
+    private int phoneNumber;
+    private String email;
     private String password;
-    private int idRole;
-
-    public User(String name, String phoneNumber, String username, String password, int idRole) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.username = username;
-        this.password = password;
-        this.idRole = idRole;
-    }
 
     public User() {
+    }
+
+    public User(int id, String name, int phoneNumber, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
     }
 
     public int getId() {
@@ -35,20 +34,20 @@ public class User {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -57,13 +56,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getIdRole() {
-        return idRole;
-    }
-
-    public void setIdRole(int idRole) {
-        this.idRole = idRole;
     }
 }
