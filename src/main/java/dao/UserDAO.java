@@ -27,8 +27,9 @@ public class UserDAO {
                 String phoneNumber = resultSet.getString("phoneNumber");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
+                String roleName = resultSet.getString("name_role");
 
-                userList.add(new User(id,name,phoneNumber,email,password));
+                userList.add(new User(id,name,phoneNumber,email,password,roleName));
             }
             return userList;
         } catch (SQLException throwAbles) {
@@ -95,7 +96,7 @@ public class UserDAO {
     }
 
     public static User findUserById(int id) {
-        String sqlFindById = "SELECT name_user,phoneNumber,email,password FROM users where id=?";
+        String sqlFindById = "SELECT name_user,phoneNumber,email,password,name_role FROM users where id=?";
         User user = null;
         try {
             preparedStatement = connection.prepareStatement(sqlFindById);
@@ -106,8 +107,9 @@ public class UserDAO {
                 String phoneNumber = resultSet.getString("phoneNumber");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
+                String roleName = resultSet.getString("name_role");
 
-                user = new User(id,name,phoneNumber,email,password);
+                user = new User(id,name,phoneNumber,email,password,roleName);
             }
 
         } catch (SQLException throwAbles) {
