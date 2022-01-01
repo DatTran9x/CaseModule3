@@ -40,7 +40,7 @@ public class Show {
 
     void showProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Product product = productService.findProductById(id);
+        Product product = productService.findById(id);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/showProduct.jsp");
         rd.forward(request, response);
@@ -74,7 +74,7 @@ public class Show {
 
     void showEditProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Product product = productService.findProductById(id);
+        Product product = productService.findById(id);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editProduct.jsp");
         rd.forward(request, response);
@@ -90,7 +90,7 @@ public class Show {
 
     void showDeleteProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Product product = productService.findProductById(id);
+        Product product = productService.findById(id);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/deleteProduct.jsp");
         rd.forward(request, response);

@@ -21,6 +21,10 @@ public class UserService {
         UserDAO.editUser(id,user);
     }
 
+    public void updateAccount(int id, User user) {
+        UserDAO.updateAccount(id,user);
+    }
+
     public void deleteUser(int id) {
         UserDAO.deleteUser(id);
     }
@@ -43,7 +47,4 @@ public class UserService {
         return UserDAO.findUserByName(name);
    }
 
-    public void updateAccount(int id, User user) {
-        UserDAO.updateAccount(id,user);
-    }
 }
