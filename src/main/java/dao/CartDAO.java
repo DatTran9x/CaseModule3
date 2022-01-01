@@ -14,7 +14,7 @@ public class CartDAO {
     static PreparedStatement preparedStatement;
 
     public static List<Cart> findAll() {
-        String sqlGetAll = "select cart.* , users.name_user as users , product.name_product as product, orderDetails.totalPrice as totalPrice\n" +
+        String sqlGetAll = "select cart.* , users.name_user as users , product.name_product as product, orderDetails.totalPrice as totalPrice, orders.quantity_order\n" +
                 "from casemodul3.cart\n" +
                 "join product on cart.id_product = product.id_product\n" +
                 "join orderdetail on product.id_product = orderdetail.id_product\n" +
@@ -31,7 +31,8 @@ public class CartDAO {
                 String nameUser = resultSet.getString("name_user");
                 String nameProduct = resultSet.getString("product");
                 Double totalPrice = resultSet.getDouble("totalPrice");
-                cartList.add(new Cart(nameUser,nameProduct,totalPrice));
+                int quantity = resultSet.getInt("quantity_order");
+                cartList.add(new Cart(nameUser,nameProduct,totalPrice,quantity));
             }
             return cartList;
         } catch (SQLException throwAbles) {
