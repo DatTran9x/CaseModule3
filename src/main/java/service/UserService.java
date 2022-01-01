@@ -18,7 +18,11 @@ public class UserService {
     }
 
     public void updateUser(int id, User user) {
-        UserDAO.editUser(id,user);
+        UserDAO.editUserForm(id,user);
+    }
+
+    public void updateAccount(int id, User user) {
+        UserDAO.editUserAccount(id,user);
     }
 
     public void deleteUser(int id) {

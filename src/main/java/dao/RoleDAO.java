@@ -1,6 +1,6 @@
 package dao;
 
-import model.Category;
+import model.Role;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,24 +9,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDAO {
+public class RoleDAO {
     private static Connection connection = ConnectMySql.getConnection();
     static PreparedStatement preparedStatement;
 
-    public static List<Category> findAll() {
-        String sqlGetAll = "SELECT * FROM category";
+    public static List<Role> findAll() {
+        String sqlGetAll = "SELECT * FROM role";
 
         try {
             preparedStatement = connection.prepareStatement(sqlGetAll);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            List<Category> categoryList = new ArrayList<>();
+            List<Role> roleList = new ArrayList<>();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id_category");
-                String name = resultSet.getString("name_category");
-                categoryList.add(new Category(id,name));
+                boolean status = resultSet.getBoolean("status");
+                roleList.add(new Role(id,status));
             }
-            return categoryList;
+            return roleList;
         } catch (SQLException throwAbles) {
             throwAbles.printStackTrace();
         }

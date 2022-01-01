@@ -3,19 +3,37 @@ package model;
 public class User {
     private int id;
     private String name;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
     private String password;
+    private int idRole;
 
     public User() {
     }
 
-    public User(int id, String name, int phoneNumber, String email, String password) {
+    public User(int id, String name, String phoneNumber, String email, String password) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
+    }
+
+    public User(int id, String name, String phoneNumber, String email, String password, int idRole) {
+        this.id = id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+        this.idRole = idRole;
+    }
+
+    public int getIdRole() {
+        return idRole;
+    }
+
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
     }
 
     public int getId() {
@@ -34,11 +52,11 @@ public class User {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

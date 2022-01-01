@@ -24,7 +24,7 @@ public class UserDAO {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id_users");
                 String name = resultSet.getString("name_user");
-                int phoneNumber = resultSet.getInt("phoneNumber");
+                String phoneNumber = resultSet.getString("phoneNumber");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
 
@@ -43,7 +43,7 @@ public class UserDAO {
         try {
             preparedStatement = connection.prepareStatement(saveSQL);
             preparedStatement.setString(1,user.getName());
-            preparedStatement.setInt(2,user.getPhoneNumber());
+            preparedStatement.setString(2,user.getPhoneNumber());
             preparedStatement.setString(3,user.getEmail());
             preparedStatement.setString(4,user.getPassword());
             preparedStatement.execute();
@@ -64,16 +64,29 @@ public class UserDAO {
         }
     }
 
-    public static void editUser(int id, User user) {
-        String editSQL = "UPDATE users set name_user=?, phoneNumber=?, email=?, password=? where id=?";
+    public static void editUserForm(int id, User user) {
+        String editUserForm = "UPDATE users set name_user=?, phoneNumber=? where id=?";
         try {
-            preparedStatement = connection.prepareStatement(editSQL);
+            preparedStatement = connection.prepareStatement(editUserForm);
 
             preparedStatement.setString(1,user.getName());
-            preparedStatement.setInt(2,user.getPhoneNumber());
-            preparedStatement.setString(3,user.getEmail());
-            preparedStatement.setString(4,user.getPassword());
-            preparedStatement.setInt(5,id);
+            preparedStatement.setString(2,user.getPhoneNumber());
+            preparedStatement.setInt(3,id);
+
+            preparedStatement.execute();
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+    }
+
+    public static void editUserAccount(int id, User user) {
+        String editAccount = "UPDATE users set email=?, password=? where id=?";
+        try {
+            preparedStatement = connection.prepareStatement(editAccount);
+
+            preparedStatement.setString(1,user.getEmail());
+            preparedStatement.setString(2,user.getPassword());
+            preparedStatement.setInt(3,id);
 
             preparedStatement.execute();
         } catch (SQLException throwAbles) {
@@ -90,7 +103,7 @@ public class UserDAO {
             preparedStatement.setInt(1,id);
             while (resultSet.next()) {
                 String name = resultSet.getString("name_users");
-                int phoneNumber = resultSet.getInt("phoneNumber");
+                String phoneNumber = resultSet.getString("phoneNumber");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
 

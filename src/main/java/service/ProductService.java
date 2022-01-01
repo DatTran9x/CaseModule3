@@ -2,7 +2,6 @@ package service;
 
 import dao.ProductDAO;
 import model.Product;
-import model.User;
 
 import java.util.List;
 

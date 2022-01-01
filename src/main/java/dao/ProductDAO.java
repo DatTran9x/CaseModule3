@@ -100,9 +100,10 @@ public class ProductDAO {
                 String motasp = resultSet.getString("motasp");
                 boolean status = resultSet.getBoolean("status");
                 String img = resultSet.getString("img");
+                String nameCategory = resultSet.getString("nameCategory");
                 int idCategory = resultSet.getInt("idCategory");
 
-                productList.add(new Product(id,name,price,quantity,motasp,status,img,idCategory));
+                productList.add(new Product(id,name,price,quantity,motasp,status,img,nameCategory,idCategory));
             }
             return productList;
 
