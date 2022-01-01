@@ -17,13 +17,13 @@ public class CartService {
         cartList = CartDAO.findAll();
     }
 
-    public void deleteCart(int idUser) {
-        CartDAO.deleteCart(idUser);
+    public void deleteCart(int id) {
+        CartDAO.deleteCart(id);
     }
 
-    public Cart findById(int idUser) {
+    public Cart findById(int id) {
         for (Cart cart:cartList) {
-            if (cart.getIdUser() == idUser) {
+            if (cart.getId() == id) {
                 return cart;
             }
         }

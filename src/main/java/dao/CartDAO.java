@@ -14,13 +14,13 @@ public class CartDAO {
     static PreparedStatement preparedStatement;
 
     public static List<Cart> findAll() {
-        String sqlGetAll = "select cart.* , users.name_user as users , product.name_product as product, orders.totalPrice as totalPrice\n" +
+        String sqlGetAll = "select cart.* , users.name_user as users , product.name_product as product, orderDetails.totalPrice as totalPrice\n" +
                 "from casemodul3.cart\n" +
                 "join product on cart.id_product = product.id_product\n" +
                 "join orderdetail on product.id_product = orderdetail.id_product\n" +
-                "join orders on orderdetail.id_orders = orders.id_orders\n" +
-                "join users on orders.id_users = users.id_users\n" +
-                "group by users.name_user,product.name_product,orders.totalPrice";
+                "join orderDetails on orderdetail.id_orders = orderDetails.id_orders\n" +
+                "join users on orderDetails.id_users = users.id_users\n" +
+                "group by users.name_user,product.name_product,orderDetails.totalPrice";
 
         try {
             preparedStatement = connection.prepareStatement(sqlGetAll);
@@ -28,12 +28,10 @@ public class CartDAO {
 
             List<Cart> cartList = new ArrayList<>();
             while (resultSet.next()) {
-                int idUser = resultSet.getInt("id_user");
-                int idProduct = resultSet.getInt("id_product");
                 String nameUser = resultSet.getString("name_user");
                 String nameProduct = resultSet.getString("product");
                 Double totalPrice = resultSet.getDouble("totalPrice");
-                cartList.add(new Cart(idUser,idProduct,nameUser,nameProduct,totalPrice));
+                cartList.add(new Cart(nameUser,nameProduct,totalPrice));
             }
             return cartList;
         } catch (SQLException throwAbles) {
@@ -43,7 +41,7 @@ public class CartDAO {
     }
 
     public static void saveCart(Cart cart) {
-        String saveSQL = "INSERT INTO cart(id_user,id_product) VALUE (?,?)";
+        String saveSQL = "INSERT INTO cart(id_users,id_product) VALUE (?,?)";
 
         try {
             preparedStatement = connection.prepareStatement(saveSQL);
@@ -56,11 +54,11 @@ public class CartDAO {
         }
     }
 
-    public static void deleteCart(int idUser){
-        String deleteSQL = "DELETE from cart where id_user=?";
+    public static void deleteCart(int id){
+        String deleteSQL = "DELETE from cart where id_cart=?";
         try {
             preparedStatement = connection.prepareStatement(deleteSQL);
-            preparedStatement.setInt(1,idUser);
+            preparedStatement.setInt(1,id);
             preparedStatement.execute();
         }catch (Exception e){
             e.printStackTrace();

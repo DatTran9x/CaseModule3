@@ -1,28 +1,22 @@
 package model;
 
-public class Cart {
+public class OrderDetail {
     private int id;
-    private int idUser;
+    private int idOrder;
     private int idProduct;
     private String nameUser;
     private String nameProduct;
     private double totalPrice;
+    private int quantity;
 
-    public Cart() {
+    public OrderDetail() {
     }
 
-    public Cart(int idUser, int idProduct, String nameUser, String nameProduct, double totalPrice) {
-        this.idUser = idUser;
-        this.idProduct = idProduct;
+    public OrderDetail(String nameUser, String nameProduct, double totalPrice, int quantity) {
         this.nameUser = nameUser;
         this.nameProduct = nameProduct;
         this.totalPrice = totalPrice;
-    }
-
-    public Cart(String nameUser, String nameProduct, Double totalPrice) {
-        this.nameUser = nameUser;
-        this.nameProduct = nameProduct;
-        this.totalPrice = totalPrice;
+        this.quantity = quantity;
     }
 
     public int getId() {
@@ -33,12 +27,12 @@ public class Cart {
         this.id = id;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public int getIdOrder() {
+        return idOrder;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setIdOrder(int idUser) {
+        this.idOrder = idUser;
     }
 
     public int getIdProduct() {
@@ -71,5 +65,13 @@ public class Cart {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
