@@ -37,4 +37,13 @@ public class UserService {
         }
         return null;
     }
+
+    public User findUserByName(String name) {
+
+        return UserDAO.findUserByName(name);
+   }
+
+    public void updateAccount(int id, User user) {
+        UserDAO.updateAccount(id,user);
+    }
 }

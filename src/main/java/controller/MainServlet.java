@@ -11,6 +11,7 @@ public class MainServlet extends HttpServlet {
     private static final Add add = new Add();
     private static final Edit edit = new Edit();
     private static final Delete delete = new Delete();
+    private static final Find find = new Find();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -82,6 +83,12 @@ public class MainServlet extends HttpServlet {
                 break;
             case "deleteProduct":
                 delete.deleteProduct(response, request);
+                break;
+            case "findUser":
+                find.findUser(response, request);
+                break;
+            case "findProduct" :
+                find.findProduct(response, request);
                 break;
         }
     }

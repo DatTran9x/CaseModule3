@@ -8,6 +8,7 @@ public class Product {
     private String motasp;
     private boolean status;
     private String img;
+    private int idCategory;
 
     public Product() {
     }
@@ -20,6 +21,35 @@ public class Product {
         this.motasp = motasp;
         this.status = status;
         this.img = img;
+    }
+
+    public Product(int id, String name, double price, int quantity, String motasp, boolean status, String img, int idCategory) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.motasp = motasp;
+        this.status = status;
+        this.img = img;
+        this.idCategory = idCategory;
+    }
+
+    public Product(String name, double price, int quantity, String motasp, boolean status, String img, int idCategory) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.motasp = motasp;
+        this.status = status;
+        this.img = img;
+        this.idCategory = idCategory;
+    }
+
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
     public int getId() {

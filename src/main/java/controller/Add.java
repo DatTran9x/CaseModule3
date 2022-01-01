@@ -2,7 +2,8 @@ package controller;
 
 import model.Product;
 import model.User;
-import service.Service;
+import service.ProductService;
+import service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,20 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class Add {
-    private static final Service service = new Service();
+    private static final UserService userService = new UserService();
+    private static final ProductService productService = new ProductService();
 
     void addUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
-        String username = request.getParameter("username");
+        String email = request.getParameter("username");
         String password = request.getParameter("password");
         String role = request.getParameter("role");
         int id = 1;
         if (role.equalsIgnoreCase("admin")) {
             id = 0;
         }
-        User user = new User(name, phoneNumber, username, password, id);
-        service.addUser(user);
+        User user = new User(name, phoneNumber, email, password, id);
+        userService.saveUser(user);
         String message = "User id added!!";
         request.setAttribute("message",message);
         RequestDispatcher rd = request.getRequestDispatcher("/view/addUser.jsp");
@@ -57,8 +59,8 @@ public class Add {
                 idCategory = 5;
                 break;
         }
-        Product product = new Product(name, price, status, quantity, description, img, idCategory);
-        service.addProduct(product);
+        Product product = new Product(name, price, quantity, description,status, img, idCategory);
+        productService.saveProduct(product);
         String message = "Product is added!!";
         request.setAttribute("message",message);
         RequestDispatcher rd = request.getRequestDispatcher("/view/addProduct.jsp");

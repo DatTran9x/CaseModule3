@@ -38,4 +38,8 @@ public class ProductService {
         }
         return null;
     }
+
+    public Product findProductByName(String name) {
+        return ProductDAO.findProductByName(name);
+    }
 }

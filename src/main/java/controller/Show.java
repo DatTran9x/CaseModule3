@@ -2,7 +2,8 @@ package controller;
 
 import model.Product;
 import model.User;
-import service.Service;
+import service.ProductService;
+import service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,17 +13,18 @@ import java.io.IOException;
 import java.util.List;
 
 public class Show {
-    private static final Service service = new Service();
+    private static final UserService userService = new UserService();
+    private static final ProductService productService = new ProductService();
 
     void showUserList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> list = service.getUserList();
+        List<User> list = userService.findAllUser();
         request.setAttribute("list", list);
         RequestDispatcher rd = request.getRequestDispatcher("/view/showLUserList.jsp");
         rd.forward(request, response);
     }
 
     void showProductList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> list = service.getProductList();
+        List<Product> list = productService.findAllProduct();
         request.setAttribute("list", list);
         RequestDispatcher rd = request.getRequestDispatcher("/view/showLProductList.jsp");
         rd.forward(request, response);
@@ -30,7 +32,7 @@ public class Show {
 
     void showUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = service.getUser(id);
+        User user = userService.findUserById(id);
         request.setAttribute("user", user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/showUser.jsp");
         rd.forward(request, response);
@@ -38,7 +40,7 @@ public class Show {
 
     void showProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Product product = service.getProduct(id);
+        Product product = productService.findProductById(id);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/showProduct.jsp");
         rd.forward(request, response);
@@ -56,7 +58,7 @@ public class Show {
 
     void showEditUserForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = service.getUser(id);
+        User user = userService.findUserById(id);
         request.setAttribute("user",user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editUser.jsp");
         rd.forward(request,response);
@@ -64,7 +66,7 @@ public class Show {
 
     void showEditAccountForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = service.getUser(id);
+        User user = userService.findUserById(id);
         request.setAttribute("user",user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editAccount.jsp");
         rd.forward(request,response);
@@ -72,7 +74,7 @@ public class Show {
 
     void showEditProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Product product = service.getProduct(id);
+        Product product = productService.findProductById(id);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editProduct.jsp");
         rd.forward(request, response);
@@ -80,7 +82,7 @@ public class Show {
 
     void showDeleteUserForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        User user = service.getUser(id);
+        User user = userService.findUserById(id);
         request.setAttribute("user",user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/deleteUser.jsp");
         rd.forward(request,response);
@@ -88,7 +90,7 @@ public class Show {
 
     void showDeleteProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Product product = service.getProduct(id);
+        Product product = productService.findProductById(id);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/deleteProduct.jsp");
         rd.forward(request, response);

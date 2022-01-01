@@ -111,4 +111,29 @@ public class ProductDAO {
         }
         return product;
     }
+
+    public static Product findProductByName(String name) {
+        String sqlFindById = "SELECT * FROM casemodul3.product WHERE name_user LIKE ?";
+        Product product = null;
+        try {
+            preparedStatement = connection.prepareStatement(sqlFindById);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            preparedStatement.setString(1,"'%" + name + "%'");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
+                String name_product = resultSet.getString("name_product");
+                Double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String motasp = resultSet.getString("motasp");
+                boolean status = resultSet.getBoolean("status");
+                String img = resultSet.getString("img");
+                int id_Category = resultSet.getInt("id_category");
+                product = new Product(id,name_product,price,quantity,motasp,status,img,id_Category);
+            }
+
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+        return product;
+    }
 }
