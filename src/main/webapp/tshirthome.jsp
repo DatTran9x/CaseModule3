@@ -71,7 +71,7 @@
             <li><a href="/tshirthome.jsp"> T-SHIRT </a></li>
             <li><a href="/sweaterhome.jsp"> SWEATER </a></li>
             <li><a href="/jackethome.jsp"> JACKET </a></li>
-            <li><a href="/jeanhome.jsp"> JEANS </a></li>
+            <li><a href="jeanhome.jsp"> JEANS </a></li>
             <li><a href="/othershome.jsp"> OTHERS </a></li>
         </ul>
 
@@ -146,7 +146,7 @@
                 <li><a href="/sweaterhome.jsp"> SWEATER </a><span>(3)</span></li>
                 <li><a href="/jackethome.jsp"> JACKET </a><span>(8)</span></li>
                 <li><a href="/jeanhome.jsp"> JEANS </a><span>(12)</span></li>
-                <li><a href="othershome.jsp"> OTHERS </a><span>(7)</span></li>
+                <li><a href="/othershome.jsp"> OTHERS </a><span>(7)</span></li>
             </ul>
 
         </div>
@@ -156,10 +156,10 @@
                 <div class="products">
                     <div class="p-img">
                         <span class="sale">Sale</span>
-                        <a href="/details.jsp"><img src="https://storage.googleapis.com/cdn.nhanh.vn/store3/93650/ps/20210224/lavish8.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM-aWJFKLDCW68kvUAgGm6NtsMtdQHaZlT4w&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Denim Jacket </a>
+                        <h6><a href="/details.jsp"> Drew House Smile </a>
 
                             <div class="rate">
                                 <div style="width: 80%;"></div>
@@ -180,10 +180,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://jemcloset.com/wp-content/uploads/2021/01/1861X.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScD6xfz9-NvRojGPdD4GSYnaSXsc0R33ziig&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Black Air Sweater </a></h6>
+                        <h6><a href="/details.jsp"> Bape Shark Purple </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -223,10 +223,10 @@
                 <div class="products">
                     <div class="p-img">
                         <span class="sale">Sale</span>
-                        <a href="/details.jsp"><img src="https://www.talkbeauty.vn/public/assets/article_dir/2020/05/phu-kien-thoi-trang-17.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2y-OM8ZHfIgJKS_vDP8tj0UQcrFuU-pldZg&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> White Bandana </a></h6>
+                        <h6><a href="/details.jsp"> ft.Captain America </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -245,10 +245,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://i.pinimg.com/474x/00/3e/8c/003e8c38c5c9bee17cadd7cf6df60146.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKj2AHAfyQ1MQYbTTe-apVpIl9xa0w_BHwGg&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> ZARA Jeans </a></h6>
+                        <h6><a href="/details.jsp"> Nelly Basic Form </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -266,10 +266,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://filebroker-cdn.lazada.vn/kf/S7403f53979eb40c58917612bc46f33f4y.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://target.scene7.com/is/image/Target/GUEST_576ab98c-8af3-43a3-a2fe-242b81bc2e62?wid=488&hei=488&fmt=pjpeg" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> LEVI'S Jeans </a></h6>
+                        <h6><a href="/details.jsp">WhitNey Houston Sleeve </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>

@@ -114,7 +114,7 @@
                         <a href="details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsYiduiVprpfIkkYqF1J6Cd8biBh2-ClgMqQ&usqp=CAU" alt=""></a>
                     </div>
                     <div class="s-products-info">
-                        <h6><a href="/details.jsp"> Bape Purple Hoodie </a></h6>
+                        <h6><a href="/details.jsp"> Bape Purple Hodie </a></h6>
                         <div class="rate">
                             <div style="width: 80%;"></div>
                         </div>
@@ -146,7 +146,7 @@
                 <li><a href="/sweaterhome.jsp"> SWEATER </a><span>(3)</span></li>
                 <li><a href="/jackethome.jsp"> JACKET </a><span>(8)</span></li>
                 <li><a href="/jeanhome.jsp"> JEANS </a><span>(12)</span></li>
-                <li><a href="othershome.jsp"> OTHERS </a><span>(7)</span></li>
+                <li><a href="/othershome.jsp"> OTHERS </a><span>(7)</span></li>
             </ul>
 
         </div>
@@ -156,7 +156,7 @@
                 <div class="products">
                     <div class="p-img">
                         <span class="sale">Sale</span>
-                        <a href="/details.jsp"><img src="https://storage.googleapis.com/cdn.nhanh.vn/store3/93650/ps/20210224/lavish8.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZABL_Gaz-l3fX3Xqh_N8Ci296TKL9VIknIQ&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
                         <h6><a href="/details.jsp"> Denim Jacket </a>
@@ -180,10 +180,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://jemcloset.com/wp-content/uploads/2021/01/1861X.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://bizweb.dktcdn.net/100/287/440/products/ao-bong-chay-theu-nam-nu.jpg?v=1617626481180" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Black Air Sweater </a></h6>
+                        <h6><a href="/details.jsp"> Davies Boomber </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -201,10 +201,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXALRg2YjFuqKxoBdRf_PM8379Txs2g2sbNg&usqp=CAU" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlVuoI5AIfqykq4QqbsbvC64DS_njk1NKvSg&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Smile Nirvana T-Shirt </a></h6>
+                        <h6><a href="/details.jsp"> Jacket Black Denim </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -223,10 +223,10 @@
                 <div class="products">
                     <div class="p-img">
                         <span class="sale">Sale</span>
-                        <a href="/details.jsp"><img src="https://www.talkbeauty.vn/public/assets/article_dir/2020/05/phu-kien-thoi-trang-17.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK38CdRtCAPdL0F-6V28yTAU6zLtLi5ns4Pg&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> White Bandana </a></h6>
+                        <h6><a href="/details.jsp"> Jacket Leather Woman  </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -245,10 +245,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://i.pinimg.com/474x/00/3e/8c/003e8c38c5c9bee17cadd7cf6df60146.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRsT72uxnCzp4v02Z_zdasgojU8-Lk8eN56g&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> ZARA Jeans </a></h6>
+                        <h6><a href="/details.jsp"> Jacket Biker </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -266,10 +266,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://filebroker-cdn.lazada.vn/kf/S7403f53979eb40c58917612bc46f33f4y.jpg" height="220" width="220" alt=""></a>
+                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRgVdLEF6otsQME8h__BBT2H4luEDiBerPug&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> LEVI'S Jeans </a></h6>
+                        <h6><a href="/details.jsp"> Jacket H&M </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
