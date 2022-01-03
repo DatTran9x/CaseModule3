@@ -24,6 +24,7 @@ public class Cart {
         this.nameUser = nameUser;
         this.nameProduct = nameProduct;
         this.totalPrice = totalPrice;
+        this.quantity = quantity;
     }
 
     public int getQuantity() {
