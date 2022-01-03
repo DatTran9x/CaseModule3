@@ -1,5 +1,6 @@
 package controller;
 
+import service.CartService;
 import service.ProductService;
 import service.UserService;
 
@@ -12,11 +13,12 @@ import java.io.IOException;
 public class Delete {
     private static final UserService userService = new UserService();
     private static final ProductService productService = new ProductService();
+    private static final CartService cartService = new CartService();
 
 
     void deleteUser(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        userService.deleteUser(id);
+        int id_user = Integer.parseInt(request.getParameter("id_user"));
+        userService.deleteUser(id_user);
         String message = "User is removed!!";
         request.setAttribute("message",message);
         RequestDispatcher rd = request.getRequestDispatcher("home");
@@ -24,11 +26,20 @@ public class Delete {
     }
 
     void deleteProduct(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        productService.deleteProduct(id);
+        int id_product = Integer.parseInt(request.getParameter("id_product"));
+        productService.deleteProduct(id_product);
         String message = "Product is removed!!";
         request.setAttribute("message",message);
         RequestDispatcher rd = request.getRequestDispatcher("home");
         rd.forward(request,response);
     }
+
+    void deleteCart(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
+        int id_cart = Integer.parseInt(request.getParameter("id_cart"));
+        cartService.deleteCart(id_cart);
+        String message = "Cart is removed!!";
+        RequestDispatcher rd = request.getRequestDispatcher("home");
+        rd.forward(request,response);
+    }
+
 }

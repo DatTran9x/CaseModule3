@@ -8,18 +8,32 @@ public class Cart {
     private String nameProduct;
     private double totalPrice;
 
+    public Cart(int idUser, int idProduct) {
+        this.idUser = idUser;
+        this.idProduct = idProduct;
+    }
+
     public Cart() {
     }
 
-    public Cart(int idUser, int idProduct, String nameUser, String nameProduct, double totalPrice) {
+    public Cart(int idUser, int idProduct, String nameUser, String nameProduct) {
         this.idUser = idUser;
         this.idProduct = idProduct;
+        this.nameUser = nameUser;
+        this.nameProduct = nameProduct;
+    }
+
+
+
+    public Cart(String nameUser, String nameProduct, Double totalPrice) {
         this.nameUser = nameUser;
         this.nameProduct = nameProduct;
         this.totalPrice = totalPrice;
     }
 
-    public Cart(String nameUser, String nameProduct, Double totalPrice) {
+    public Cart( int idUser, int idProduct, String nameUser, String nameProduct, double totalPrice) {
+        this.idUser = idUser;
+        this.idProduct = idProduct;
         this.nameUser = nameUser;
         this.nameProduct = nameProduct;
         this.totalPrice = totalPrice;

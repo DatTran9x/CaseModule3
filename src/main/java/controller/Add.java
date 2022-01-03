@@ -1,7 +1,11 @@
 package controller;
 
+import model.Cart;
+import model.OrderDetail;
 import model.Product;
 import model.User;
+import service.CartService;
+import service.OrderDetailService;
 import service.ProductService;
 import service.UserService;
 
@@ -10,10 +14,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class Add {
     private static final UserService userService = new UserService();
     private static final ProductService productService = new ProductService();
+    private static final CartService cartService = new CartService();
+    private static final OrderDetailService orderDetailService = new OrderDetailService();
 
     void addUser(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String name = request.getParameter("name");
@@ -64,6 +71,16 @@ public class Add {
         String message = "Product is added!!";
         request.setAttribute("message",message);
         RequestDispatcher rd = request.getRequestDispatcher("/view/addProduct.jsp");
+        rd.forward(request,response);
+    }
+
+    void addProductToOrder(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        int user_id = Integer.parseInt(request.getParameter("user_id"));
+        int product_id = Integer.parseInt(request.getParameter("product_id"));
+        Cart cart = new Cart(user_id,product_id);
+        cartService.saveCart(cart);
+        request.setAttribute("cart",cartService.findAllCart());
+        RequestDispatcher rd = request.getRequestDispatcher("/view/addProductToCart.jsp");
         rd.forward(request,response);
     }
 }

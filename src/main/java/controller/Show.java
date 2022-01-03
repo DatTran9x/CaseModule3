@@ -31,16 +31,16 @@ public class Show {
     }
 
     void showUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.findUserById(id);
+        int id_user = Integer.parseInt(request.getParameter("id_user"));
+        User user = userService.findUserById(id_user);
         request.setAttribute("user", user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/showUser.jsp");
         rd.forward(request, response);
     }
 
     void showProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = productService.findById(id);
+        int id_product = Integer.parseInt(request.getParameter("id_product"));
+        Product product = productService.findById(id_product);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/showProduct.jsp");
         rd.forward(request, response);
@@ -57,42 +57,46 @@ public class Show {
     }
 
     void showEditUserForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.findUserById(id);
+        int id_user = Integer.parseInt(request.getParameter("id_user"));
+        User user = userService.findUserById(id_user);
         request.setAttribute("user",user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editUser.jsp");
         rd.forward(request,response);
     }
 
     void showEditAccountForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.findUserById(id);
+        int id_product = Integer.parseInt(request.getParameter("id_product"));
+        User user = userService.findUserById(id_product);
         request.setAttribute("user",user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editAccount.jsp");
         rd.forward(request,response);
     }
 
     void showEditProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = productService.findById(id);
+        int id_product = Integer.parseInt(request.getParameter("id_product"));
+        Product product = productService.findById(id_product);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editProduct.jsp");
         rd.forward(request, response);
     }
 
     void showDeleteUserForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.findUserById(id);
+        int id_user = Integer.parseInt(request.getParameter("id_user"));
+        User user = userService.findUserById(id_user);
         request.setAttribute("user",user);
         RequestDispatcher rd = request.getRequestDispatcher("/view/deleteUser.jsp");
         rd.forward(request,response);
     }
 
     void showDeleteProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = productService.findById(id);
+        int id_productd = Integer.parseInt(request.getParameter("id_product"));
+        Product product = productService.findById(id_productd);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/deleteProduct.jsp");
         rd.forward(request, response);
+    }
+
+    void showCart(HttpServletRequest request,HttpServletResponse response){
+        int id_user = Integer.parseInt(request.getParameter("id_user"));
     }
 }

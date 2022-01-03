@@ -25,13 +25,15 @@ public class CartDAO {
         try {
             preparedStatement = connection.prepareStatement(sqlGetAll);
             ResultSet resultSet = preparedStatement.executeQuery();
-
             List<Cart> cartList = new ArrayList<>();
             while (resultSet.next()) {
+                int id_user = resultSet.getInt("id_user");
+                int id_product = resultSet.getInt("id_product");
                 String nameUser = resultSet.getString("name_user");
                 String nameProduct = resultSet.getString("product");
                 Double totalPrice = resultSet.getDouble("totalPrice");
-                cartList.add(new Cart(nameUser,nameProduct,totalPrice));
+                int id_cart = resultSet.getInt("id_cart");
+                cartList.add(new Cart(id_user, id_product, nameUser, nameProduct, totalPrice));
             }
             return cartList;
         } catch (SQLException throwAbles) {
@@ -42,26 +44,55 @@ public class CartDAO {
 
     public static void saveCart(Cart cart) {
         String saveSQL = "INSERT INTO cart(id_users,id_product) VALUE (?,?)";
-
         try {
             preparedStatement = connection.prepareStatement(saveSQL);
-            preparedStatement.setInt(1,cart.getIdUser());
-            preparedStatement.setInt(2,cart.getIdProduct());
+            preparedStatement.setInt(1, cart.getIdUser());
+            preparedStatement.setInt(2, cart.getIdProduct());
             preparedStatement.execute();
-
         } catch (SQLException throwAbles) {
             throwAbles.printStackTrace();
         }
     }
 
-    public static void deleteCart(int id){
+    public static void deleteCart(int id) {
         String deleteSQL = "DELETE from cart where id_cart=?";
         try {
             preparedStatement = connection.prepareStatement(deleteSQL);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             preparedStatement.execute();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<Cart> findAllByUser(int user_id) {
+        String findAllCartByUserSQL = "select cart.* , users.name_user as users , product.name_product as product, orderDetails.totalPrice as totalPrice\n" +
+                "from casemodul3.cart\n" +
+                "join product on cart.id_product = product.id_product\n" +
+                "join orderdetail on product.id_product = orderdetail.id_product\n" +
+                "join orderDetails on orderdetail.id_orders = orderDetails.id_orders\n" +
+                "join users on orderDetails.id_users = users.id_users\n" +
+                "group by users.name_user,product.name_product,orderDetails.totalPrice where id_user=?";
+        List<Cart> list = new ArrayList<>();
+        try {
+            preparedStatement = connection.prepareStatement(findAllCartByUserSQL);
+            preparedStatement.setInt(1, user_id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id_user = rs.getInt("id_user");
+                int id_product = rs.getInt("id_product");
+                String nameUser = rs.getString("name_user");
+                String nameProduct = rs.getString("product");
+                Double totalPrice = rs.getDouble("totalPrice");
+                list.add(new Cart(id_user, id_product, nameUser, nameProduct, totalPrice));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
+
+    public static void editCart(Cart cart) {
+
     }
 }

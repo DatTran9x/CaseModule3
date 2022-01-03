@@ -1,15 +1,24 @@
 package service;
 
 import dao.ProductDAO;
+import model.Category;
 import model.Product;
 
 import java.util.List;
 
 public class ProductService {
     static List<Product> productList = ProductDAO.findAll();
+    static List<Category> categoryList = CategoryService.findAllCategory();
 
     public List<Product> findAllProduct() {
-        return productList = ProductDAO.findAll();
+        productList = ProductDAO.findAll();
+        for (Product product : productList) {
+            for (Category category : categoryList) {
+                if (product.getIdCategory() == category.getId())
+                    product.setNameCategory(category.getName());
+            }
+        }
+        return productList;
     }
 
     public void saveProduct(Product product) {
@@ -18,7 +27,7 @@ public class ProductService {
     }
 
     public void updateProduct(int id, Product product) {
-        ProductDAO.editProduct(id,product);
+        ProductDAO.editProduct(id, product);
     }
 
     public void deleteProduct(int id) {
@@ -26,19 +35,29 @@ public class ProductService {
     }
 
     public List<Product> findProductByName(String nameFind) {
-        return ProductDAO.findProductByName(nameFind);
+        productList = ProductDAO.findProductByName(nameFind);
+        for (Product product : productList) {
+            for (Category category : categoryList) {
+                if (product.getIdCategory() == category.getId())
+                    product.setNameCategory(category.getName());
+            }
+        }
+        return productList;
     }
 
     public Product findById(int id) {
-        for (Product product:productList) {
+        productList = ProductDAO.findAll();
+        for (Product product : productList) {
             if (product.getId() == id) {
+                for (Category category : categoryList) {
+                    if (product.getIdCategory() == category.getId())
+                        product.setNameCategory(category.getName());
+                }
                 return product;
             }
         }
         return null;
     }
 
-    public Product findProductByName(String name) {
-        return ProductDAO.findProductByName(name);
-    }
+
 }

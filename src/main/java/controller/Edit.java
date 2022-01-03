@@ -1,7 +1,9 @@
 package controller;
 
+import model.Cart;
 import model.Product;
 import model.User;
+import service.CartService;
 import service.ProductService;
 import service.UserService;
 
@@ -14,6 +16,7 @@ import java.io.IOException;
 public class Edit {
     private static final UserService userService = new UserService();
     private static final ProductService productService = new ProductService();
+    private static final CartService cartService = new CartService();
 
     void editUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -81,5 +84,17 @@ public class Edit {
         request.setAttribute("message", message);
         RequestDispatcher rd = request.getRequestDispatcher("/view/editProduct.jsp");
         rd.forward(request, response);
+    }
+
+    void editCart(HttpServletRequest request,HttpServletResponse response){
+        int id_user = Integer.parseInt(request.getParameter("id_user"));
+        String name_user = request.getParameter("name_user");
+        int id_cart = Integer.parseInt(request.getParameter("id_cart"));
+        int id_product = Integer.parseInt(request.getParameter("id_product"));
+        String name_product = request.getParameter("name_product");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        Cart cart = new Cart(id_user,id_product,name_user,name_product);
+        cart.setId(id_cart);
+        cartService.editCart(cart);
     }
 }

@@ -102,9 +102,10 @@ public class UserDAO {
         return user;
     }
 
-    public static User findUserByName(String name) {
+    public static List<User> findUserByName(String name) {
         String sqlFindByName = "SELECT * FROM casemodul3.users WHERE name_user LIKE ?;";
         User user = null;
+        List<User> userList = new ArrayList<>();
         try {
             preparedStatement = connection.prepareStatement(sqlFindByName);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -117,12 +118,13 @@ public class UserDAO {
                 int id = resultSet.getInt("id_users");
                 int idRole = resultSet.getInt("id_role");
                 user = new User(id, name_users, phoneNumber, email, password, idRole);
+                userList.add(user);
             }
 
         } catch (SQLException throwAbles) {
             throwAbles.printStackTrace();
         }
-        return user;
+        return userList;
     }
 
     public static void updateAccount(int id, User user) {
