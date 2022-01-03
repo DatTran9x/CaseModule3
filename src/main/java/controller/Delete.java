@@ -38,6 +38,7 @@ public class Delete {
         int id_cart = Integer.parseInt(request.getParameter("id_cart"));
         cartService.deleteCart(id_cart);
         String message = "Cart is removed!!";
+        request.setAttribute("message",message);
         RequestDispatcher rd = request.getRequestDispatcher("home");
         rd.forward(request,response);
     }

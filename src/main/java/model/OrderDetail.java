@@ -2,7 +2,7 @@ package model;
 
 public class OrderDetail {
     private int id;
-    private int idOrder;
+    private int idCart;
     private int idProduct;
     private String nameUser;
     private String nameProduct;
@@ -27,12 +27,12 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public int getIdOrder() {
-        return idOrder;
+    public int getIdCart() {
+        return idCart;
     }
 
-    public void setIdOrder(int idUser) {
-        this.idOrder = idUser;
+    public void setIdCart(int idUser) {
+        this.idCart = idUser;
     }
 
     public int getIdProduct() {

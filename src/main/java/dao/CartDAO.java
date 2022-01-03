@@ -13,7 +13,7 @@ public class CartDAO {
     private static Connection connection = ConnectMySql.getConnection();
     static PreparedStatement preparedStatement;
 
-    public static List<Cart> findAll() {
+    public static Cart findAll() {
         String sqlGetAll = "select cart.* , users.name_user as users , product.name_product as product, orderDetails.totalPrice as totalPrice\n" +
                 "from casemodul3.cart\n" +
                 "join product on cart.id_product = product.id_product\n" +
@@ -25,7 +25,7 @@ public class CartDAO {
         try {
             preparedStatement = connection.prepareStatement(sqlGetAll);
             ResultSet resultSet = preparedStatement.executeQuery();
-            List<Cart> cartList = new ArrayList<>();
+            Cart cart = new Cart();
             while (resultSet.next()) {
                 int id_user = resultSet.getInt("id_user");
                 int id_product = resultSet.getInt("id_product");
@@ -33,9 +33,10 @@ public class CartDAO {
                 String nameProduct = resultSet.getString("product");
                 Double totalPrice = resultSet.getDouble("totalPrice");
                 int id_cart = resultSet.getInt("id_cart");
-                cartList.add(new Cart(id_user, id_product, nameUser, nameProduct, totalPrice));
+                int quantity = resultSet.getInt("quantity");
+                cart = new Cart(id_cart,id_user, id_product, nameUser, nameProduct, totalPrice,quantity);
             }
-            return cartList;
+            return cart;
         } catch (SQLException throwAbles) {
             throwAbles.printStackTrace();
         }
@@ -65,7 +66,7 @@ public class CartDAO {
         }
     }
 
-    public static List<Cart> findAllByUser(int user_id) {
+    public static Cart findAllByUser(int user_id) {
         String findAllCartByUserSQL = "select cart.* , users.name_user as users , product.name_product as product, orderDetails.totalPrice as totalPrice\n" +
                 "from casemodul3.cart\n" +
                 "join product on cart.id_product = product.id_product\n" +
@@ -73,7 +74,7 @@ public class CartDAO {
                 "join orderDetails on orderdetail.id_orders = orderDetails.id_orders\n" +
                 "join users on orderDetails.id_users = users.id_users\n" +
                 "group by users.name_user,product.name_product,orderDetails.totalPrice where id_user=?";
-        List<Cart> list = new ArrayList<>();
+        Cart cart = new Cart();
         try {
             preparedStatement = connection.prepareStatement(findAllCartByUserSQL);
             preparedStatement.setInt(1, user_id);
@@ -84,15 +85,15 @@ public class CartDAO {
                 String nameUser = rs.getString("name_user");
                 String nameProduct = rs.getString("product");
                 Double totalPrice = rs.getDouble("totalPrice");
-                list.add(new Cart(id_user, id_product, nameUser, nameProduct, totalPrice));
+                cart = new Cart(id_user, id_product, nameUser, nameProduct, totalPrice);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return list;
+        return cart;
     }
 
     public static void editCart(Cart cart) {
-
+        
     }
 }

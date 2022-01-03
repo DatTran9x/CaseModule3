@@ -3,6 +3,7 @@ package service;
 import dao.OrderDAO;
 import model.OrderDetail;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDetailService {
@@ -25,12 +26,14 @@ public class OrderDetailService {
         OrderDAO.deleteOrder(id);
     }
 
-    public OrderDetail findById(int id) {
+    public static List<OrderDetail> findById(int id) {
+        orderDetailList = OrderDAO.findAll();
+        List<OrderDetail> list = new ArrayList<>();
         for (OrderDetail orderDetail:orderDetailList) {
             if (orderDetail.getId() == id) {
-                return orderDetail;
+                list.add(orderDetail);
             }
         }
-        return null;
+        return list;
     }
 }

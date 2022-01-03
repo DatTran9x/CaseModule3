@@ -7,6 +7,7 @@ public class Cart {
     private String nameUser;
     private String nameProduct;
     private double totalPrice;
+    private int quantity;
 
     public Cart(int idUser, int idProduct) {
         this.idUser = idUser;
@@ -37,6 +38,24 @@ public class Cart {
         this.nameUser = nameUser;
         this.nameProduct = nameProduct;
         this.totalPrice = totalPrice;
+    }
+
+    public Cart(int id, int idUser, int idProduct, String nameUser, String nameProduct, double totalPrice, int quantity) {
+        this.id = id;
+        this.idUser = idUser;
+        this.idProduct = idProduct;
+        this.nameUser = nameUser;
+        this.nameProduct = nameProduct;
+        this.totalPrice = totalPrice;
+        this.quantity = quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getId() {

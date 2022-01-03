@@ -1,7 +1,6 @@
 package controller;
 
 import model.Cart;
-import model.OrderDetail;
 import model.Product;
 import model.User;
 import service.CartService;
@@ -14,7 +13,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 public class Add {
     private static final UserService userService = new UserService();
@@ -74,7 +72,7 @@ public class Add {
         rd.forward(request,response);
     }
 
-    void addProductToOrder(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+    void addProductToCart(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int user_id = Integer.parseInt(request.getParameter("user_id"));
         int product_id = Integer.parseInt(request.getParameter("product_id"));
         Cart cart = new Cart(user_id,product_id);

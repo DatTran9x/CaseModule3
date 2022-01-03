@@ -2,26 +2,38 @@ package service;
 
 import dao.CartDAO;
 import model.Cart;
+import model.OrderDetail;
 import model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CartService {
-    static List<Cart> cartList = CartDAO.findAll();
-    static List<Product> productList = new ArrayList<>();
+    Cart cart;
     static ProductService productService = new ProductService();
 
-    public List<Cart> findAllCart() {
-        return cartList = CartDAO.findAll();
+    public Cart findAllCart() {
+        cart = CartDAO.findAll();
+        int id_cart = cart.getId();
+        List<OrderDetail> list = OrderDetailService.findById(id_cart);
+        double totalPrice=0;
+        for (OrderDetail od : list) {
+            int quantity = od.getQuantity();
+            int id_product = od.getIdProduct();
+            Product product = productService.findById(id_product);
+            double price = product.getPrice();
+            od.setTotalPrice(price*quantity);
+            totalPrice = totalPrice+(price*quantity);
+        }
+        cart.setTotalPrice(totalPrice);
+        return cart;
     }
 
     public void saveCart(Cart cart) {
         CartDAO.saveCart(cart);
-        cartList = CartDAO.findAll();
     }
 
-    public List<Cart> findAllCartById(int user_id){
+    public Cart findAllCartById(int user_id) {
         return CartDAO.findAllByUser(user_id);
     }
 
@@ -30,15 +42,40 @@ public class CartService {
     }
 
     public Cart findById(int id) {
-        for (Cart cart:cartList) {
-            if (cart.getId() == id) {
-                return cart;
-            }
+        cart = CartDAO.findAllByUser(id);
+        int id_cart = cart.getId();
+        List<OrderDetail> list = OrderDetailService.findById(id_cart);
+        double totalPrice=0;
+        for (OrderDetail od : list) {
+            int quantity = od.getQuantity();
+            int id_product = od.getIdProduct();
+            Product product = productService.findById(id_product);
+            double price = product.getPrice();
+            od.setTotalPrice(price*quantity);
+            totalPrice = totalPrice+(price*quantity);
         }
-        return null;
+        cart.setTotalPrice(totalPrice);
+        return cart;
     }
 
     public void editCart(Cart cart) {
         CartDAO.editCart(cart);
+    }
+
+    public double payment(double money, int id_user) {
+        cart = findById(id_user);
+        int id_cart = cart.getId();
+        List<OrderDetail> list = OrderDetailService.findById(id_cart);
+        double totalPrice=0;
+        for (OrderDetail od : list) {
+            int quantity = od.getQuantity();
+            int id_product = od.getIdProduct();
+            Product product = productService.findById(id_product);
+            double price = product.getPrice();
+            od.setTotalPrice(price*quantity);
+            totalPrice = totalPrice+(price*quantity);
+        }
+        cart.setTotalPrice(totalPrice);
+        return totalPrice-money;
     }
 }

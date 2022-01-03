@@ -45,7 +45,7 @@ public class OrderDAO {
 
         try {
             preparedStatement = connection.prepareStatement(saveSQL);
-            preparedStatement.setInt(1, orderDetail.getIdOrder());
+            preparedStatement.setInt(1, orderDetail.getIdCart());
             preparedStatement.setInt(2, orderDetail.getIdProduct());
             preparedStatement.execute();
 
@@ -70,7 +70,7 @@ public class OrderDAO {
         try {
             preparedStatement = connection.prepareStatement(editSQL);
 
-            preparedStatement.setInt(1,orderDetail.getIdOrder());
+            preparedStatement.setInt(1,orderDetail.getIdCart());
             preparedStatement.setInt(2,orderDetail.getIdProduct());
             preparedStatement.setInt(3,id);
 
