@@ -24,23 +24,25 @@
                 <a href="https://www.facebook.com/tranxuan.dat.1" class="s-vimeo">&nbsp;</a>
             </div>
             <div class="basket">
-                <a href="/cart.jsp"><span> CART </span></a>
+                <a href="/view/cart.jsp"><span> CART </span></a>
             </div>
             <div class="login">
-                <a href="/login.jsp"> Log Out </a>
+                <a href="/view/login.jsp"> LOGIN </a>
+                <span>/</span>
+                <a href="/view/signup.jsp"> SIGN UP </a>
             </div>
         </div>
     </div>
 
     <div id="header" class="center clearfix">
         <div id="logo" class="left">
-            <a href="/adminhome.jsp">
+            <a href="#">
                 <img src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.6435-9/117229425_674141463187030_4941209283882753123_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=UiCFfubFppgAX9f0JrR&_nc_ht=scontent.fhan3-2.fna&oh=00_AT_g8usbIlZ18vNs0iCxzXlbEXbT6fGR5S1NGVo5CSir7g&oe=61F40071" height="60" width="61" alt="">
                 <span> SakMaDik Streetwear </span>
             </a>
         </div>
         <ul class="nav right clearfix">
-            <li class="active"><a href="/home.jsp"> HOME </a></li>
+            <li class="active"><a href="/view/home.jsp"> HOME </a></li>
             <li><a href="#"> FEATURED </a></li>
             <li><a href="#"> MAN STYLE </a></li>
             <li><a href="#"> WOMAN STYLE </a></li>
@@ -55,7 +57,7 @@
                 <h2 class="title-home">
                     SaMaDik - Fashion may fade, but style lasts forever </h2>
                 <ul class="breadcrumbds clearfix">
-                    <li><a href="/adminhome.jsp">Home</a><span class="sp">&raquo;</span></li>
+                    <li><a href="/view/home.jsp">Home</a><span class="sp">&raquo;</span></li>
                     <li><a href="#">Shop</a><span class="sp">&raquo;</span></li>
                     <li><span> “To be irreplaceable, you must always be different” </span></li>
                 </ul>
@@ -65,12 +67,12 @@
 
     <div class="sorting center clearfix">
         <ul class="s-category clearfix">
-            <li class="active"><a href="/adminhome.jsp">ALL</a></li>
-            <li><a href="/adminshirt.jsp"> T-SHIRT </a></li>
-            <li><a href="/adminsweather.jsp"> SWEATER </a></li>
-            <li><a href="/adminjacket.jsp"> JACKET </a></li>
-            <li><a href="/adminjeans.jsp"> JEANS </a></li>
-            <li><a href="/adminothers.jsp"> OTHERS </a></li>
+            <li class="active"><a href="/view/home.jsp">ALL</a></li>
+            <li><a href="/view/tshirthome.jsp"> T-SHIRT </a></li>
+            <li><a href="/view/sweaterhome.jsp"> SWEATER </a></li>
+            <li><a href="/view/jackethome.jsp"> JACKET </a></li>
+            <li><a href="/view/jeanhome.jsp"> JEANS </a></li>
+            <li><a href="/view/othershome.jsp"> OTHERS </a></li>
         </ul>
 
         <div class="s-list">
@@ -112,7 +114,7 @@
                         <a href="details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsYiduiVprpfIkkYqF1J6Cd8biBh2-ClgMqQ&usqp=CAU" alt=""></a>
                     </div>
                     <div class="s-products-info">
-                        <h6><a href="/details.jsp"> Bape Purple Hodie </a></h6>
+                        <h6><a href="/view/details.jsp"> Bape Purple Hodie </a></h6>
                         <div class="rate">
                             <div style="width: 80%;"></div>
                         </div>
@@ -122,10 +124,10 @@
 
                 <div class="s-products-item clearfix">
                     <div class="s-products-img">
-                        <a href="/details.jsp"><img src="https://cf.shopee.vn/file/0e8b55d9aaaab93554472b4a61a07e58" alt=""></a>
+                        <a href="/view/details.jsp"><img src="https://cf.shopee.vn/file/0e8b55d9aaaab93554472b4a61a07e58" alt=""></a>
                     </div>
                     <div class="s-products-info">
-                        <h6><a href="/details.jsp"> Drew House Shirt </a></h6>
+                        <h6><a href="/view/details.jsp"> Drew House Shirt </a></h6>
                         <div class="rate">
                             <div style="width: 80%;"></div>
                         </div>
@@ -140,11 +142,11 @@
             <h4 class="s-title"> Our Categories <span class="s-title-br"></span></h4>
 
             <ul class="cat-list">
-                <li><a href="/adminshirt.jsp"> T-SHIRT </a><span>(5)</span></li>
-                <li><a href="/adminsweather.jsp"> SWEATER </a><span>(3)</span></li>
-                <li><a href="/adminjacket.jsp"> JACKET </a><span>(8)</span></li>
-                <li><a href="/adminjeans.jsp"> JEANS </a><span>(12)</span></li>
-                <li><a href="/adminothers.jsp"> OTHERS </a><span>(7)</span></li>
+                <li><a href="/view/tshirthome.jsp"> T-SHIRT </a><span>(5)</span></li>
+                <li><a href="/view/sweaterhome.jsp"> SWEATER </a><span>(3)</span></li>
+                <li><a href="/view/jackethome.jsp"> JACKET </a><span>(8)</span></li>
+                <li><a href="/view/jeanhome.jsp"> JEANS </a><span>(12)</span></li>
+                <li><a href="/view/othershome.jsp"> OTHERS </a><span>(7)</span></li>
             </ul>
 
         </div>
@@ -153,13 +155,23 @@
             <div class="product-catalog clearfix">
                 <div class="products">
                     <div class="p-img">
-                        <a href="/create.jsp"><img src="https://clipartion.com/wp-content/uploads/2016/04/best-math-clipart-black-and-white-clipartion-com.gif" height="220" width="220" alt=""></a>
+                        <span class="sale">Sale</span>
+                        <a href="/view/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZABL_Gaz-l3fX3Xqh_N8Ci296TKL9VIknIQ&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/create.jsp"> Add New Product </a>
+                        <h6><a href="/view/details.jsp"> Denim Jacket </a>
 
                             <div class="rate">
                                 <div style="width: 80%;"></div>
+                            </div>
+
+                            <p><strong>Lorem ipsum</strong> dolor sit amet an
+                                adipiscing elit, sed diam nonu.</p>
+
+                            <div class="p-footer-price clearfix">
+                                <span class="price"> $14.99 </span>
+                                <span class="price-new"> $9.99 </span>
+                                <a href="/view/cart.jsp" class="right add-cart"> Add to cart </a>
                             </div>
                         </h6>
                     </div>
@@ -168,10 +180,10 @@
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://bizweb.dktcdn.net/100/287/440/products/ao-bong-chay-theu-nam-nu.jpg?v=1617626481180" height="220" width="220" alt=""></a>
+                        <a href="/view/details.jsp"><img src="https://bizweb.dktcdn.net/100/287/440/products/ao-bong-chay-theu-nam-nu.jpg?v=1617626481180" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Davies Boomber </a></h6>
+                        <h6><a href="/view/details.jsp"> Davies Boomber </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -182,18 +194,17 @@
 
                         <div class="p-footer-price clearfix">
                             <span class="price-old">$11.99</span>
-                            <a href="/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
+                            <a href="/view/cart.jsp" class="right add-cart">Add to cart</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlVuoI5AIfqykq4QqbsbvC64DS_njk1NKvSg&usqp=CAU" height="220" width="220" alt=""></a>
+                        <a href="/view/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlVuoI5AIfqykq4QqbsbvC64DS_njk1NKvSg&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Jacket Black Denim </a></h6>
+                        <h6><a href="/view/details.jsp"> Jacket Black Denim </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -204,8 +215,7 @@
 
                         <div class="p-footer-price clearfix">
                             <span class="price-old">$17.99</span>
-                            <a href="/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
+                            <a href="/view/cart.jsp" class="right add-cart">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -213,10 +223,10 @@
                 <div class="products">
                     <div class="p-img">
                         <span class="sale">Sale</span>
-                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK38CdRtCAPdL0F-6V28yTAU6zLtLi5ns4Pg&usqp=CAU" height="220" width="220" alt=""></a>
+                        <a href="/view/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK38CdRtCAPdL0F-6V28yTAU6zLtLi5ns4Pg&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Jacket Leather Woman  </a></h6>
+                        <h6><a href="/view/details.jsp"> Jacket Leather Woman  </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -228,18 +238,17 @@
                         <div class="p-footer-price clearfix">
                             <span class="price">$14.99</span>
                             <span class="price-new">$8.99</span>
-                            <a href="/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
+                            <a href="/view/cart.jsp" class="right add-cart">Add to cart</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRsT72uxnCzp4v02Z_zdasgojU8-Lk8eN56g&usqp=CAU" height="220" width="220" alt=""></a>
+                        <a href="/view/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRsT72uxnCzp4v02Z_zdasgojU8-Lk8eN56g&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Jacket Biker </a></h6>
+                        <h6><a href="/view/details.jsp"> Jacket Biker </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -250,18 +259,17 @@
 
                         <div class="p-footer-price clearfix">
                             <span class="price-old">$17.99</span>
-                            <a href="/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
+                            <a href="/view/cart.jsp" class="right add-cart">Add to cart</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="products">
                     <div class="p-img">
-                        <a href="/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRgVdLEF6otsQME8h__BBT2H4luEDiBerPug&usqp=CAU" height="220" width="220" alt=""></a>
+                        <a href="/view/details.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRgVdLEF6otsQME8h__BBT2H4luEDiBerPug&usqp=CAU" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
-                        <h6><a href="/details.jsp"> Jacket H&M </a></h6>
+                        <h6><a href="/view/details.jsp"> Jacket H&M </a></h6>
 
                         <div class="rate">
                             <div style="width: 80%;"></div>
@@ -272,8 +280,7 @@
 
                         <div class="p-footer-price clearfix">
                             <span class="price-old">$23.59</span>
-                            <a href="/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
+                            <a href="/view/cart.jsp" class="right add-cart">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -362,7 +369,7 @@
     </div>
     <div class="footer-bottom">
         <div class="center">
-            <a href="/home.jsp"> Home </a>
+            <a href="/view/home.jsp"> Home </a>
             <a href="#"> Portfolio </a>
             <a href="#"> Sitemap </a>
             <a href="#"> Contact </a>

@@ -25,7 +25,7 @@
                       <p><input type="submit" value="Sign In"></p>
                   </fieldset>
               </form>
-              <p>Not a member ? <a href="/signup.jsp" class="blue">Sign up now</a><span class="fontawesome-arrow-right"></span></p>
+              <p>Not a member ? <a href="/view/signup.jsp" class="blue">Sign up now</a><span class="fontawesome-arrow-right"></span></p>
           </div>
       </div>
   </div>
