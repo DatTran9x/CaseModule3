@@ -53,6 +53,18 @@ public class UserDAO {
         }
     }
 
+    public static void saveAccount(User user){
+        String saveSQL = "INSERT INTO users(email,password) VALUE (?,?)";
+        try {
+            preparedStatement = connection.prepareStatement(saveSQL);
+            preparedStatement.setString(1, user.getEmail());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.execute();
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+    }
+
     public static void deleteUser(int id) {
         String deleteSQL = "DELETE from users where id=?";
         try {

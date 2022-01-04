@@ -37,9 +37,9 @@ public class User {
         this.idRole = idRole;
     }
 
-    public User(String name, String phoneNumber) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
+    public User(String email, String password) {
+        this.email=email;
+        this.password=password;
     }
 
     public String getRole() {

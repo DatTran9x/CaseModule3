@@ -25,6 +25,11 @@ public class UserService {
         userList = UserDAO.findAll();
     }
 
+    public void saveAccount(User user){
+        UserDAO.saveAccount(user);
+        userList = UserDAO.findAll();
+    }
+
     public void updateUser(int id, User user) {
         UserDAO.editUser(id, user);
     }

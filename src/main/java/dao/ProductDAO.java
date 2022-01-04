@@ -86,8 +86,8 @@ public class ProductDAO {
     }
 
     public static List<Product> findProductByName(String nameFind) {
-        String sqlFindById = "SELECT product.*, category.name_category as category FROM casemodule3.product join category on product.id_category = category.id_category\n" +
-                "where product.name_product like '%"+nameFind+"%\'";
+        String sqlFindById = "SELECT product.*, category.name_category as category FROM product join category on product.id_category = category.id_category " +
+                "where product.name_product like '%"+nameFind+"%'";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(sqlFindById);
@@ -100,14 +100,14 @@ public class ProductDAO {
                 String motasp = resultSet.getString("motasp");
                 boolean status = resultSet.getBoolean("status");
                 String img = resultSet.getString("img");
-                String nameCategory = resultSet.getString("nameCategory");
-                int idCategory = resultSet.getInt("idCategory");
+                String nameCategory = resultSet.getString("category");
+                int idCategory = resultSet.getInt("id_category");
 
                 productList.add(new Product(id,name,price,quantity,motasp,status,img,nameCategory,idCategory));
             }
             return productList;
 
-        } catch (SQLException throwAbles) {
+        } catch (Exception throwAbles) {
             throwAbles.printStackTrace();
         }
         return null;

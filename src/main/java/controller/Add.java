@@ -41,26 +41,26 @@ public class Add {
     void addProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
         String description = request.getParameter("description");
-        String img = request.getParameter("img");
+        int quantity = 100;
+        String img = "1";
         String category = request.getParameter("category");
         boolean status = quantity != 0;
         int idCategory = -1;
         switch (category) {
-            case "t-shirt":
+            case "T-SHIRT":
                 idCategory = 1;
                 break;
-            case "sweater":
+            case "SWEATER":
                 idCategory = 2;
                 break;
-            case "jacket":
+            case "JACKET":
                 idCategory = 3;
                 break;
-            case "jeans":
+            case "JEANS":
                 idCategory = 4;
                 break;
-            case "others":
+            case "OTHERS":
                 idCategory = 5;
                 break;
         }
@@ -68,8 +68,7 @@ public class Add {
         productService.saveProduct(product);
         String message = "Product is added!!";
         request.setAttribute("message",message);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/addProduct.jsp");
-        rd.forward(request,response);
+        response.sendRedirect("/home");
     }
 
     void addProductToCart(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {

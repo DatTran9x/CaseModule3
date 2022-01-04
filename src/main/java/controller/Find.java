@@ -31,7 +31,7 @@ public class Find {
         String name = request.getParameter("name");
         List<Product> product = productService.findProductByName(name);
         request.setAttribute("product",product);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/findUser.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/details.jsp");
         requestDispatcher.forward(request,response);
     }
 

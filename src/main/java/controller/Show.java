@@ -26,7 +26,7 @@ public class Show {
     void showProductList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> list = productService.findAllProduct();
         request.setAttribute("list", list);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/showLProductList.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/view/home.jsp");
         rd.forward(request, response);
     }
 
@@ -52,7 +52,7 @@ public class Show {
     }
 
     void showAddProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd =request.getRequestDispatcher("/view/addProduct.jsp");
+        RequestDispatcher rd =request.getRequestDispatcher("/view/create.jsp");
         rd.forward(request,response);
     }
 
@@ -89,14 +89,10 @@ public class Show {
     }
 
     void showDeleteProductForm(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        int id_productd = Integer.parseInt(request.getParameter("id_product"));
-        Product product = productService.findById(id_productd);
+        int id_product = Integer.parseInt(request.getParameter("id_product"));
+        Product product = productService.findById(id_product);
         request.setAttribute("product", product);
         RequestDispatcher rd = request.getRequestDispatcher("/view/deleteProduct.jsp");
         rd.forward(request, response);
-    }
-
-    void showCart(HttpServletRequest request,HttpServletResponse response){
-        int id_user = Integer.parseInt(request.getParameter("id_user"));
     }
 }
