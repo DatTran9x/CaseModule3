@@ -37,4 +37,8 @@ public class Login {
         requestDispatcher.forward(request,response);
     }
 
+    void logOut(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/login.jsp");
+        requestDispatcher.forward(request,response);
+    }
 }
