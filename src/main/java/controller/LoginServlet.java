@@ -27,13 +27,13 @@ public class LoginServlet extends HttpServlet {
         for (User user : list) {
             if (user.getEmail() == null || user.getPassword() == null) continue;
             if (user.getEmail().equals(username) && user.getPassword().equals(password)) {
-                requestDispatcher = req.getRequestDispatcher("/view/adminhome.jsp");
+                requestDispatcher = req.getRequestDispatcher("/admin");
                 requestDispatcher.forward(req, resp);
                 return;
             }
         }
         if (username.equals("admin") && password.equals("admin")) {
-            requestDispatcher = req.getRequestDispatcher("/view/adminhome.jsp");
+            requestDispatcher = req.getRequestDispatcher("/admin");
             requestDispatcher.forward(req, resp);
         } else {
             requestDispatcher = req.getRequestDispatcher("/home");

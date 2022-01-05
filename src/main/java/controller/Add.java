@@ -34,7 +34,7 @@ public class Add {
         userService.saveUser(user);
         String message = "User id added!!";
         request.setAttribute("message",message);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/addUser.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/admin");
         rd.forward(request,response);
     }
 
@@ -68,7 +68,7 @@ public class Add {
         productService.saveProduct(product);
         String message = "Product is added!!";
         request.setAttribute("message",message);
-        response.sendRedirect("/home");
+        response.sendRedirect("/admin");
     }
 
     void addProductToCart(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {

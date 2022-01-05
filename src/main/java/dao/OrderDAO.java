@@ -15,7 +15,7 @@ public class OrderDAO {
 
     public static List<OrderDetail> findAll() {
         String sqlGetAll = "select orderdetail.* , orderDetails.totalPrice as totalPrice, orderDetails.quantity_order as soLuong, users.name_user as khachHang, product.name_product as tenSanPham\n" +
-                "from casemodul3.orderdetail\n" +
+                "from orderdetail\n" +
                 "join product on orderdetail.id_product = product.id_product\n" +
                 "join orderDetails on orderdetail.id_orders = orderDetails.id_orders\n" +
                 "join users on orderDetails.id_users = users.id_users\n" +

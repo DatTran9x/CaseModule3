@@ -56,7 +56,7 @@ public class ProductDAO {
     }
 
     public static void deleteProduct(int id){
-        String deleteSQL = "DELETE from product where id=?";
+        String deleteSQL = "DELETE from product where id_product=?";
         try {
             preparedStatement = connection.prepareStatement(deleteSQL);
             preparedStatement.setInt(1,id);
@@ -67,7 +67,7 @@ public class ProductDAO {
     }
 
     public static void editProduct(int id, Product product) {
-        String editSQL = "UPDATE product set name_product=?, price=?, status=?, quantity=?, motasp=?, img=? where id=?";
+        String editSQL = "UPDATE product set name_product=?, price=?, status=?, quantity=?, motasp=?, img=? where id_product=?";
         try {
             preparedStatement = connection.prepareStatement(editSQL);
 

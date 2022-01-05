@@ -30,8 +30,7 @@ public class Delete {
         productService.deleteProduct(id_product);
         String message = "Product is removed!!";
         request.setAttribute("message",message);
-        RequestDispatcher rd = request.getRequestDispatcher("home");
-        rd.forward(request,response);
+        response.sendRedirect("/admin");
     }
 
     void deleteCart(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {

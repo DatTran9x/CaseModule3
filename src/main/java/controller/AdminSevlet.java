@@ -1,12 +1,14 @@
 package controller;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "MainServlet", value = "/home")
-public class MainServlet extends HttpServlet {
+@WebServlet(name = "AdminServlet", value = "/admin")
+public class AdminSevlet extends HttpServlet {
     private static final Show show = new Show();
     private static final Add add = new Add();
     private static final Edit edit = new Edit();
@@ -51,10 +53,9 @@ public class MainServlet extends HttpServlet {
                 delete.deleteProduct(response, request);
                 break;
             default:
-            show.showProductList(request,response);
+                show.showAdmin(request,response);
         }
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

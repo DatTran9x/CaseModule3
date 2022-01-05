@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>EDIT</title>
-    <link rel="stylesheet" href="editcss.css">
+    <link rel="stylesheet" href="/view/editcss.css">
 </head>
 <body>
 <div class="wrapper">
@@ -68,7 +68,7 @@
             </div>
             
             <div class="product-btns">
-                <a href="#" class="product-add"> Edit </a>
+                <a href="/admin?action=editProduct" class="product-add"> Edit </a>
             </div>
         </div>
         <div class="product-right">

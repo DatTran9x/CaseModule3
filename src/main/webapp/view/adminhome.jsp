@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -93,7 +94,7 @@
 
             <h4 class="s-title">Search our products <span class="s-title-br"></span></h4>
 
-            <form action="/home?action=findProduct" class="s-search" method="post">
+            <form action="/admin?action=findProduct" class="s-search" method="post">
                 <input type="text" name="name" placeholder="Search..."/>
                 <input type="submit" value="Find"/>
             </form>
@@ -153,124 +154,43 @@
             <div class="product-catalog clearfix">
                 <div class="products">
                     <div class="p-img">
-                        <a href="home?action=showAddProductForm"><img src="https://clipartion.com/wp-content/uploads/2016/04/best-math-clipart-black-and-white-clipartion-com.gif" height="220" width="220" alt=""></a>
+                        <a href="admin?action=showAddProductForm"><img src="https://clipartion.com/wp-content/uploads/2016/04/best-math-clipart-black-and-white-clipartion-com.gif" height="220" width="220" alt=""></a>
                     </div>
                     <div class="p-footer">
                         <br><br><br>
-                        <h6><a href="/home?action=showAddProductForm"> Add new product </a></h6>
+                        <h6><a href="/admin?action=showAddProductForm"> Add new product </a></h6>
                     </div>
                 </div>
 
+                <div class="content">
+                    <div class="product-catalog clearfix">
+                        <c:forEach items="${list}" var="p" varStatus="loop">
+                            <div class="col-span-4">
+                                <div class="products">
+                                    <div class="p-img">
+                                        <span class="sale">Sale</span>
+                                        <a href="/view/details.jsp"><img src="${p.img}" height="220" width="220" alt=""></a>
+                                    </div>
+                                    <div class="p-footer">
+                                        <h6><a href="/view/details.jsp"> ${p.name} </a>
 
-                <div class="products">
-                    <div class="p-img">
-                        <a href="/view/edit.jsp"><img src="https://jemcloset.com/wp-content/uploads/2021/01/1861X.jpg" height="220" width="220" alt=""></a>
-                    </div>
-                    <div class="p-footer">
-                        <h6><a href="/view/edit.jsp"> Black Air Sweater </a></h6>
+                                            <div class="rate">
+                                                <div style="width: 80%;"></div>
+                                            </div>
 
-                        <div class="rate">
-                            <div style="width: 80%;"></div>
-                        </div>
+                                            <p> ${p.motasp} </p>
 
-                        <p><strong>Lorem ipsum</strong> dolor sit amet an
-                            adipiscing elit, sed diam nonu.</p>
-
-                        <div class="p-footer-price clearfix">
-                            <span class="price-old">$11.99</span>
-                            <a href="/view/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="products">
-                    <div class="p-img">
-                        <a href="/view/edit.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXALRg2YjFuqKxoBdRf_PM8379Txs2g2sbNg&usqp=CAU" height="220" width="220" alt=""></a>
-                    </div>
-                    <div class="p-footer">
-                        <h6><a href="/view/edit.jsp"> Smile Nirvana T-Shirt </a></h6>
-
-                        <div class="rate">
-                            <div style="width: 80%;"></div>
-                        </div>
-
-                        <p><strong>Lorem ipsum</strong> dolor sit amet an
-                            adipiscing elit, sed diam nonu.</p>
-
-                        <div class="p-footer-price clearfix">
-                            <span class="price-old">$17.99</span>
-                            <a href="/view/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="products">
-                    <div class="p-img">
-                        <a href="/view/edit.jsp"><img src="https://www.talkbeauty.vn/public/assets/article_dir/2020/05/phu-kien-thoi-trang-17.jpg" height="220" width="220" alt=""></a>
-                    </div>
-                    <div class="p-footer">
-                        <h6><a href="/view/edit.jsp"> White Bandana </a></h6>
-
-                        <div class="rate">
-                            <div style="width: 80%;"></div>
-                        </div>
-
-                        <p><strong>Lorem ipsum</strong> dolor sit amet an
-                            adipiscing elit, sed diam nonu.</p>
-
-                        <div class="p-footer-price clearfix">
-                            <span class="price">$14.99</span>
-                            <span class="price-new">$8.99</span>
-                            <a href="/view/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="products">
-                    <div class="p-img">
-                        <a href="/view/edit.jsp"><img src="https://i.pinimg.com/474x/00/3e/8c/003e8c38c5c9bee17cadd7cf6df60146.jpg" height="220" width="220" alt=""></a>
-                    </div>
-                    <div class="p-footer">
-                        <h6><a href="/view/edit.jsp"> ZARA Jeans </a></h6>
-
-                        <div class="rate">
-                            <div style="width: 80%;"></div>
-                        </div>
-
-                        <p><strong>Lorem ipsum</strong> dolor sit amet an
-                            adipiscing elit, sed diam nonu.</p>
-
-                        <div class="p-footer-price clearfix">
-                            <span class="price-old">$17.99</span>
-                            <a href="/view/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="products">
-                    <div class="p-img">
-                        <a href="/view/edit.jsp"><img src="https://filebroker-cdn.lazada.vn/kf/S7403f53979eb40c58917612bc46f33f4y.jpg" height="220" width="220" alt=""></a>
-                    </div>
-                    <div class="p-footer">
-                        <h6><a href="/view/edit.jsp"> LEVI'S Jeans </a></h6>
-
-                        <div class="rate">
-                            <div style="width: 80%;"></div>
-                        </div>
-
-                        <p><strong>Lorem ipsum</strong> dolor sit amet an
-                            adipiscing elit, sed diam nonu.</p>
-
-                        <div class="p-footer-price clearfix">
-                            <span class="price-old">$23.59</span>
-                            <a href="/view/edit.jsp" class="right add-cart">Edit</a>
-                            <a href="#" class="right add-cart">Remove</a>
-                        </div>
+                                            <div class="p-footer-price clearfix">
+                                                <span class="price"> $15.99 </span>
+                                                <span class="price-new"> ${p.price} </span>
+                                                <a href="/admin?action=showEditProductForm&id_product=${p.id}" class="right add-cart">Edit</a>
+                                                <a href="/admin?action=showDeleteProductForm&id_product=${p.id}" class="right add-cart">Remove</a>
+                                            </div>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
