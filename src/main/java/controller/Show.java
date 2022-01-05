@@ -19,7 +19,7 @@ public class Show {
     void showUserList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> list = userService.findAllUser();
         request.setAttribute("list", list);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/showLUserList.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/view/userlist.jsp");
         rd.forward(request, response);
     }
 
@@ -48,8 +48,8 @@ public class Show {
     void showProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id_product = Integer.parseInt(request.getParameter("id_product"));
         Product product = productService.findById(id_product);
-        request.setAttribute("product", product);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/showProduct.jsp");
+        request.setAttribute("list", product);
+        RequestDispatcher rd = request.getRequestDispatcher("/view/details.jsp");
         rd.forward(request, response);
     }
 
@@ -67,7 +67,7 @@ public class Show {
         int id_user = Integer.parseInt(request.getParameter("id_user"));
         User user = userService.findUserById(id_user);
         request.setAttribute("user",user);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/editUser.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/view/edituser.jsp");
         rd.forward(request,response);
     }
 

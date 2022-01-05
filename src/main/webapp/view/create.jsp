@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Add new product</title>
@@ -65,6 +66,14 @@
                 <div class="product-total">
                     <h3> Price </h3>
                     <input type="text" name="price">
+                </div>
+                <div class="product-total">
+                    <h3> Img </h3>
+                    <input type="text" name="img">
+                </div>
+                <div class="product-total">
+                    <h3> Quantity </h3>
+                    <input type="text" name="quantity">
                 </div>
             </div>
 

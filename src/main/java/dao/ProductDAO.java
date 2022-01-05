@@ -112,4 +112,59 @@ public class ProductDAO {
         }
         return null;
     }
+
+    public static List<Product> sortUp() {
+        String sortASC = "SELECT * FROM casemodul3.product ORDER BY price asc ;";
+
+        try {
+            preparedStatement = connection.prepareStatement(sortASC);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Product> productList = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
+                String name = resultSet.getString("name_product");
+                Double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String motasp = resultSet.getString("motasp");
+                boolean status = resultSet.getBoolean("status");
+                String img = resultSet.getString("img");
+
+                productList.add(new Product(id,name,price,quantity,motasp,status,img));
+            }
+            return productList;
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static List<Product> sortDown() {
+        String sortDESC = "SELECT * FROM casemodul3.product ORDER BY price desc ;";
+
+        try {
+            preparedStatement = connection.prepareStatement(sortDESC);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            List<Product> productList = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
+                String name = resultSet.getString("name_product");
+                Double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String motasp = resultSet.getString("motasp");
+                boolean status = resultSet.getBoolean("status");
+                String img = resultSet.getString("img");
+
+                productList.add(new Product(id,name,price,quantity,motasp,status,img));
+            }
+            return productList;
+        } catch (SQLException throwAbles) {
+            throwAbles.printStackTrace();
+        }
+
+        return null;
+
+    }
 }

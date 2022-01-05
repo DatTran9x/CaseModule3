@@ -19,10 +19,7 @@ public class Delete {
     void deleteUser(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         int id_user = Integer.parseInt(request.getParameter("id_user"));
         userService.deleteUser(id_user);
-        String message = "User is removed!!";
-        request.setAttribute("message",message);
-        RequestDispatcher rd = request.getRequestDispatcher("home");
-        rd.forward(request,response);
+        response.sendRedirect("/user");
     }
 
     void deleteProduct(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {

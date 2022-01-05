@@ -14,6 +14,7 @@ public class AdminSevlet extends HttpServlet {
     private static final Edit edit = new Edit();
     private static final Delete delete = new Delete();
     private static final Find find = new Find();
+    private static final Sort sort = new Sort();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,6 +52,12 @@ public class AdminSevlet extends HttpServlet {
                 break;
             case "showDeleteProductForm":
                 delete.deleteProduct(response, request);
+                break;
+            case "sortUp":
+                sort.sortUp(response,request);
+                break;
+            case "sortDown":
+                sort.sortDown(request,response);
                 break;
             default:
                 show.showAdmin(request,response);

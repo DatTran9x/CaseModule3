@@ -22,15 +22,15 @@ public class Edit {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String phoneNumber = request.getParameter("phoneNumber");
-        User user = new User();
-        user.setName(name);
-        user.setPhoneNumber(phoneNumber);
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        User user = new User(name,phoneNumber,email,password);
         userService.updateUser(id,user);
         user = userService.findUserById(id);
         request.setAttribute("user", user);
         String message = "User is updated!!";
         request.setAttribute("message", message);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/editUser.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/edituser.jsp");
         requestDispatcher.forward(request, response);
     }
 

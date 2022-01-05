@@ -18,9 +18,11 @@ public class SignUpServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("Username");
         String password  = req.getParameter("Password");
-        User user = new User(username,password);
+        String name = req.getParameter("name");
+        String phonenumber = req.getParameter("phonenumber");
+        User user = new User(name,phonenumber,username,password);
         UserService userService = new UserService();
-        userService.saveAccount(user);
+        userService.saveUser(user);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/login.jsp");
         requestDispatcher.forward(req,resp);
     }

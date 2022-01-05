@@ -67,7 +67,7 @@
 
     <div class="sorting center clearfix">
         <ul class="s-category clearfix">
-            <li class="active"><a href="/view/home.jsp">ALL</a></li>
+            <li class="active"><a href="/admin">ALL</a></li>
             <li><a href="/view/tshirthome.jsp"> T-SHIRT </a></li>
             <li><a href="/view/sweaterhome.jsp"> SWEATER </a></li>
             <li><a href="/view/jackethome.jsp"> JACKET </a></li>

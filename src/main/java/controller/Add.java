@@ -42,8 +42,8 @@ public class Add {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
-        int quantity = 100;
-        String img = "1";
+        int quantity = Integer.parseInt("quantity");
+        String img = request.getParameter("img");
         String category = request.getParameter("category");
         boolean status = quantity != 0;
         int idCategory = -1;

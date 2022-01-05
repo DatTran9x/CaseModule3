@@ -60,4 +60,13 @@ public class ProductService {
     }
 
 
+    public List<Product> sortUp() {
+        productList = ProductDAO.sortUp();
+        return productList;
+    }
+
+    public List<Product> sortDown() {
+        productList = ProductDAO.sortDown();
+        return productList;
+    }
 }

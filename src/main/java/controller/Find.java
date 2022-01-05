@@ -22,16 +22,16 @@ public class Find {
     void findUser(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         String name = request.getParameter("name");
         List<User> user = userService.findUserByName(name);
-        request.setAttribute("user",user);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/findUser.jsp");
+        request.setAttribute("list",user);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/user.jsp");
         requestDispatcher.forward(request,response);
     }
 
     void findProduct(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         String name = request.getParameter("name");
         List<Product> product = productService.findProductByName(name);
-        request.setAttribute("product",product);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/details.jsp");
+        request.setAttribute("list",product);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/adminhome.jsp");
         requestDispatcher.forward(request,response);
     }
 

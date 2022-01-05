@@ -44,10 +44,10 @@
             </a>
         </div>
         <ul class="nav right clearfix">
-            <li class="active"><a href="/view/home.jsp"> HOME </a></li>
-            <li><a href="#"> FEATURED </a></li>
-            <li><a href="#"> MAN STYLE </a></li>
-            <li><a href="#"> WOMAN STYLE </a></li>
+            <li class="active"><a href="/home"> HOME </a></li>
+            <li><a href="https://www.coolaccidents.com/news/best-gucci-mane-features"> FEATURED </a></li>
+            <li><a href="https://www.gucci.com/us/en/ca/men/ready-to-wear-for-men-c-men-readytowear"> MAN STYLE </a></li>
+            <li><a href="https://www.gucci.com/us/en/ca/women-c-women"> WOMAN STYLE </a></li>
             <li><a href="https://www.businessoffashion.com/news/"> FASHION NEWS </a></li>
             <li><a href="https://www.facebook.com/tranxuan.dat.1"> CONTACT US </a></li>
         </ul>
@@ -59,8 +59,8 @@
                 <h2 class="title-home">
                     SaMaDik - Fashion may fade, but style lasts forever </h2>
                 <ul class="breadcrumbds clearfix">
-                    <li><a href="/view/home.jsp">Home</a><span class="sp">&raquo;</span></li>
-                    <li><a href="/view/home.jsp">Shop</a><span class="sp">&raquo;</span></li>
+                    <li><a href="/home">Home</a><span class="sp">&raquo;</span></li>
+                    <li><a href="/home">Shop</a><span class="sp">&raquo;</span></li>
                     <li><span> “To be irreplaceable, you must always be different” </span></li>
                 </ul>
             </div>
@@ -69,7 +69,7 @@
 
     <div class="sorting center clearfix">
         <ul class="s-category clearfix">
-            <li class="active"><a href="/view/home.jsp">ALL</a></li>
+            <li class="active"><a href="/home">ALL</a></li>
             <li><a href="/view/tshirthome.jsp"> T-SHIRT </a></li>
             <li><a href="/view/sweaterhome.jsp"> SWEATER </a></li>
             <li><a href="/view/jackethome.jsp"> JACKET </a></li>
@@ -159,7 +159,7 @@
         <div class="content">
             <div class="product-catalog clearfix">
                 <c:forEach items="${list}" var="p" varStatus="loop">
-                    <div class="col-span-4">
+                    <div class="col-span-5">
                         <div class="products">
                             <div class="p-img">
                                 <span class="sale">Sale</span>
@@ -297,15 +297,6 @@
                 <br>
                 <br>
                 <br>
-
-                <div class="pagination">
-                    <ul class="clearfix">
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </div>
 
             </div>
         </div>

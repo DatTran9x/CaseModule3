@@ -53,7 +53,7 @@ public class UserDAO {
         }
     }
 
-    public static void saveAccount(User user){
+    public static void saveAccount(User user) {
         String saveSQL = "INSERT INTO users(email,password) VALUE (?,?)";
         try {
             preparedStatement = connection.prepareStatement(saveSQL);
@@ -66,7 +66,7 @@ public class UserDAO {
     }
 
     public static void deleteUser(int id) {
-        String deleteSQL = "DELETE from users where id=?";
+        String deleteSQL = "DELETE from users where id_users=?";
         try {
             preparedStatement = connection.prepareStatement(deleteSQL);
             preparedStatement.setInt(1, id);
@@ -77,13 +77,15 @@ public class UserDAO {
     }
 
     public static void editUser(int id, User user) {
-        String editSQL = "UPDATE users set name_user=?, phoneNumber=? where id=?";
+        String editSQL = "UPDATE users set name_user=?, phoneNumber=?, email=?, password=? where id_users=?";
         try {
             preparedStatement = connection.prepareStatement(editSQL);
 
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getPhoneNumber());
-            preparedStatement.setInt(3, id);
+            preparedStatement.setString(3,user.getEmail());
+            preparedStatement.setString(4,user.getPassword());
+            preparedStatement.setInt(5, id);
             preparedStatement.execute();
         } catch (SQLException throwAbles) {
             throwAbles.printStackTrace();
@@ -92,20 +94,19 @@ public class UserDAO {
 
 
     public static User findUserById(int id) {
-        String sqlFindById = "SELECT name_user,phoneNumber,email,password FROM users where id=?";
+        String sqlFindById = "SELECT name_user,phoneNumber,email,password FROM users where id_users=?";
         User user = null;
         try {
             preparedStatement = connection.prepareStatement(sqlFindById);
-            ResultSet resultSet = preparedStatement.executeQuery();
             preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String name = resultSet.getString("name_users");
+                String name = resultSet.getString("name_user");
                 String phoneNumber = resultSet.getString("phoneNumber");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-                int idRole = resultSet.getInt("id_role");
 
-                user = new User(id, name, phoneNumber, email, password, idRole);
+                user = new User(id, name, phoneNumber, email, password);
             }
 
         } catch (SQLException throwAbles) {
@@ -115,15 +116,14 @@ public class UserDAO {
     }
 
     public static List<User> findUserByName(String name) {
-        String sqlFindByName = "SELECT * FROM casemodul3.users WHERE name_user LIKE ?;";
+        String sqlFindByName = "SELECT * FROM users WHERE name_user LIKE '%"+name+"%';";
         User user = null;
         List<User> userList = new ArrayList<>();
         try {
             preparedStatement = connection.prepareStatement(sqlFindByName);
             ResultSet resultSet = preparedStatement.executeQuery();
-            preparedStatement.setString(1, "'%" + name + "%'");
             while (resultSet.next()) {
-                String name_users = resultSet.getString("name_users");
+                String name_users = resultSet.getString("name_user");
                 String phoneNumber = resultSet.getString("phoneNumber");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");

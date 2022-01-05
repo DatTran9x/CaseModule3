@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Sign up</title>
-    <link rel="stylesheet" href="csssignup.css">
+    <link rel="stylesheet" href="/view/csssignup.css">
 </head>
 <body>
 <div>
@@ -20,8 +20,10 @@
         <div id="login">
             <form method="post">
                 <fieldset class="clearfix">
-                    <p><span class="fontawesome-user"></span><input type="text" name="Username" value="Username"></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                    <p><span class="fontawesome-user"></span><input type="text" name="Username" value="Email"></p> <!-- JS because of IE support; better: placeholder="Username" -->
                     <p><span class="fontawesome-lock"></span><input type="password" name="Password" value="Password"></p> <!-- JS because of IE support; better: placeholder="Password" -->
+                    <p><span class="fontawesome-lock"></span><input type="text" name="phonenumber" value="Phonenumber" ></p>
+                    <p><span class="fontawesome-lock"></span><input type="text" name="name" value="Name" ></p>
                     <p><input type="submit" value="Sign Up"></p>
                 </fieldset>
             </form>
