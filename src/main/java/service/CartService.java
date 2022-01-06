@@ -5,35 +5,24 @@ import model.Cart;
 import model.OrderDetail;
 import model.Product;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CartService {
-    Cart cart;
+    private static List<Cart> list = new ArrayList<>();
     static ProductService productService = new ProductService();
 
-    public Cart findAllCart() {
-        cart = CartDAO.findAll();
-        int id_cart = cart.getId();
-        List<OrderDetail> list = OrderDetailService.findById(id_cart);
-        double totalPrice=0;
-        for (OrderDetail od : list) {
-            int quantity = od.getQuantity();
-            int id_product = od.getIdProduct();
-            Product product = productService.findById(id_product);
-            double price = product.getPrice();
-            od.setTotalPrice(price*quantity);
-            totalPrice = totalPrice+(price*quantity);
-        }
-        cart.setTotalPrice(totalPrice);
-        return cart;
+    public List<Cart> findAllCart() {
+        return CartDAO.findAll();
     }
 
     public void saveCart(Cart cart) {
+        cart.setQuantity(1);
         CartDAO.saveCart(cart);
     }
 
-    public Cart findAllCartById(int user_id) {
+    public List<Cart> findAllCartById(int user_id) {
         return CartDAO.findAllByUser(user_id);
     }
 
@@ -41,41 +30,37 @@ public class CartService {
         CartDAO.deleteCart(id);
     }
 
-    public Cart findById(int id) {
-        cart = CartDAO.findAllByUser(id);
-        int id_cart = cart.getId();
-        List<OrderDetail> list = OrderDetailService.findById(id_cart);
-        double totalPrice=0;
-        for (OrderDetail od : list) {
-            int quantity = od.getQuantity();
-            int id_product = od.getIdProduct();
-            Product product = productService.findById(id_product);
-            double price = product.getPrice();
-            od.setTotalPrice(price*quantity);
-            totalPrice = totalPrice+(price*quantity);
-        }
-        cart.setTotalPrice(totalPrice);
-        return cart;
+    public List<Cart> findById(int id) {
+        return CartDAO.findAllByUser(id);
     }
 
-    public void editCart(Cart cart) {
-        CartDAO.editCart(cart);
+    public void plus(Cart cart) {
+        list = findAllCart();
+        for (Cart c : list) {
+            if (c.getIdProduct() == cart.getIdProduct()) {
+                c.setQuantity(c.getQuantity() + 1);
+                CartDAO.editCart(c);
+                return;
+            }
+        }
+        cart.setQuantity(1);
+        CartDAO.saveCart(cart);
     }
 
-    public double payment(double money, int id_user) {
-        cart = findById(id_user);
-        int id_cart = cart.getId();
-        List<OrderDetail> list = OrderDetailService.findById(id_cart);
-        double totalPrice=0;
-        for (OrderDetail od : list) {
-            int quantity = od.getQuantity();
-            int id_product = od.getIdProduct();
-            Product product = productService.findById(id_product);
-            double price = product.getPrice();
-            od.setTotalPrice(price*quantity);
-            totalPrice = totalPrice+(price*quantity);
+    public void payment() throws SQLException {
+        CartDAO.payment();
+    }
+
+    public void minus(Cart cart) {
+        list = findAllCart();
+        for (Cart c : list) {
+            if (c.getIdProduct() == cart.getIdProduct()) {
+                cart.setQuantity(c.getQuantity() - 1);
+                cart.setId(c.getId());
+            }
         }
-        cart.setTotalPrice(totalPrice);
-        return totalPrice-money;
+        if (cart.getQuantity() > 1)
+            CartDAO.editCart(cart);
+        else CartDAO.deleteCart(cart.getId());
     }
 }

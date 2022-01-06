@@ -85,6 +85,46 @@ public class ProductDAO {
         }
     }
 
+    public int getTotalProduct() {
+        String query = "SELECT count(id_product) from product;";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt("count(id_product)");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static List<Product> pagingProduct(int index) {
+        List<Product> productList = new ArrayList<>();
+        String paging = "SELECT * from product order by id_product limit 5 offset ?";
+        try {
+            preparedStatement = connection.prepareStatement(paging);
+            preparedStatement.setInt(1,(index -1)*5);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_product");
+                String name = resultSet.getString("name_product");
+                Double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String motasp = resultSet.getString("motasp");
+                boolean status = resultSet.getBoolean("status");
+                String img = resultSet.getString("img");
+
+                productList.add(new Product(id,name,price,quantity,motasp,status,img));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return productList;
+    }
+
+
     public static List<Product> findProductByName(String nameFind) {
         String sqlFindById = "SELECT product.*, category.name_category as category FROM product join category on product.id_category = category.id_category " +
                 "where product.name_product like '%"+nameFind+"%'";

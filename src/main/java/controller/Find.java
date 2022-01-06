@@ -37,8 +37,10 @@ public class Find {
 
     void findCart(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id_user = Integer.parseInt(request.getParameter("id_user"));
-        Cart cart =  cartService.findAllCartById(id_user);
+        List<Cart> cart =  cartService.findAllCartById(id_user);
         request.setAttribute("cart",cart);
+        List<Product> productList = productService.getListByCart(cart);
+        request.setAttribute("product",productList);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/cart.jsp");
         requestDispatcher.forward(request,response);
     }

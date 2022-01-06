@@ -23,48 +23,25 @@ public class LoginServlet extends HttpServlet {
         if (username == null) username = "";
         if (password == null) password = "";
         List<User> list = userService.findAllUser();
-        RequestDispatcher requestDispatcher;
         for (User user : list) {
             if (user.getEmail() == null || user.getPassword() == null) continue;
             if (user.getEmail().equals(username) && user.getPassword().equals(password)) {
-                requestDispatcher = req.getRequestDispatcher("/admin");
-                requestDispatcher.forward(req, resp);
+                resp.sendRedirect("/home");
                 return;
             }
         }
         if (username.equals("admin") && password.equals("admin")) {
-            requestDispatcher = req.getRequestDispatcher("/admin");
-            requestDispatcher.forward(req, resp);
+           resp.sendRedirect("/admin");
         } else {
-            requestDispatcher = req.getRequestDispatcher("/home");
-            requestDispatcher.forward(req,resp);
+            resp.sendRedirect("/login");
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("Username");
-        String password = req.getParameter("Password");
-        if (username == null) username = "";
-        if (password == null) password = "";
-        List<User> list = userService.findAllUser();
         RequestDispatcher requestDispatcher;
-        if (username.equals("admin") && password.equals("admin")) {
-            requestDispatcher = req.getRequestDispatcher("/view/adminhome.jsp");
-            requestDispatcher.forward(req, resp);
-            if (list != null) {
-                for (User user : list) {
-                    if (user.getEmail().equals(username) && user.getPassword().equals(password)) {
-                        requestDispatcher = req.getRequestDispatcher("/view/adminhome.jsp");
-                        requestDispatcher.forward(req, resp);
-                    }
-                }
-            }
-        } else {
-            requestDispatcher = req.getRequestDispatcher("/view/login.jsp");
-            requestDispatcher.forward(req, resp);
-
-        }
+        requestDispatcher = req.getRequestDispatcher("/view/login.jsp");
+        requestDispatcher.forward(req, resp);
     }
 }
 

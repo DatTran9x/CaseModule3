@@ -21,7 +21,7 @@ public class Login {
         RequestDispatcher requestDispatcher;
         for (User user:list) {
             if(user.getEmail().equals(username)&&user.getPassword().equals(password)){
-                requestDispatcher =  request.getRequestDispatcher("home");
+                requestDispatcher =  request.getRequestDispatcher("/admin");
                 requestDispatcher.forward(request,response);
             }
         }

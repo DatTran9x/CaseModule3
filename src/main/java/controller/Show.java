@@ -1,5 +1,6 @@
 package controller;
 
+import dao.ProductDAO;
 import model.Product;
 import model.User;
 import service.ProductService;
@@ -24,15 +25,45 @@ public class Show {
     }
 
     void showProductList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> list = productService.findAllProduct();
-        request.setAttribute("list", list);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/home.jsp");
-        rd.forward(request, response);
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+
+        RequestDispatcher requestDispatcher = null;
+        ProductDAO productDAO = new ProductDAO();
+        int count = productDAO.getTotalProduct();
+        int endPage = count/5;
+        if (count %5 != 0 ) {
+            endPage++;
+        }
+        List<Product> list = ProductDAO.pagingProduct(index);
+
+        request.setAttribute("list",list);
+        request.setAttribute("page",endPage);
+        requestDispatcher=request.getRequestDispatcher("/view/home.jsp");
+        requestDispatcher.forward(request,response);
     }
 
     void showAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> list = productService.findAllProduct();
-        request.setAttribute("list", list);
+        String indexPage = request.getParameter("index");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+
+        RequestDispatcher requestDispatcher = null;
+        ProductDAO productDAO = new ProductDAO();
+        int count = productDAO.getTotalProduct();
+        int endPage = count/5;
+        if (count %5 != 0 ) {
+            endPage++;
+        }
+        List<Product> list = ProductDAO.pagingProduct(index);
+
+        request.setAttribute("list",list);
+        request.setAttribute("page",endPage);
         RequestDispatcher rd = request.getRequestDispatcher("/view/adminhome.jsp");
         rd.forward(request, response);
     }

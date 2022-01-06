@@ -50,6 +50,9 @@ public class MainServlet extends HttpServlet {
             case "showDeleteProductForm":
                 delete.deleteProduct(response, request);
                 break;
+            case "addProductToCart":
+                add.addProductToCart(request, response);
+                break;
             default:
             show.showProductList(request,response);
         }

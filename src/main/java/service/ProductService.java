@@ -1,9 +1,11 @@
 package service;
 
 import dao.ProductDAO;
+import model.Cart;
 import model.Category;
 import model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService {
@@ -68,5 +70,15 @@ public class ProductService {
     public List<Product> sortDown() {
         productList = ProductDAO.sortDown();
         return productList;
+    }
+
+
+    public List<Product> getListByCart(List<Cart> cart) {
+        List<Product> list = new ArrayList<>();
+        for (Cart c:cart) {
+            Product product = findById(c.getIdProduct());
+            list.add(product);
+        }
+        return list;
     }
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/view/details.css">
 </head>
 <body>
+<h2 class="checkout"><a href="/home">Back</a></h2>
 <div class="wrapper">
         <div class="card">
             <div class="product-left">
@@ -51,7 +52,7 @@
                 </div>
                 <!-- ADD TO CART BUTTON -->
                 <div class="product-btns">
-                    <a href="#" class="product-add">Add To Cart</a>
+                    <a href="/home?action=addProductToCart&id_product=${requestScope["list"].id}" class="product-add">Add To Cart</a>
                 </div>
             </div>
             <div class="product-right">

@@ -23,8 +23,7 @@ public class SignUpServlet extends HttpServlet {
         User user = new User(name,phonenumber,username,password);
         UserService userService = new UserService();
         userService.saveUser(user);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/view/login.jsp");
-        requestDispatcher.forward(req,resp);
+        resp.sendRedirect("/login");
     }
 
     @Override

@@ -30,13 +30,4 @@ public class Delete {
         response.sendRedirect("/admin");
     }
 
-    void deleteCart(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
-        int id_cart = Integer.parseInt(request.getParameter("id_cart"));
-        cartService.deleteCart(id_cart);
-        String message = "Cart is removed!!";
-        request.setAttribute("message",message);
-        RequestDispatcher rd = request.getRequestDispatcher("home");
-        rd.forward(request,response);
-    }
-
 }

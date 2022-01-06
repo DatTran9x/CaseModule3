@@ -163,10 +163,10 @@
                         <div class="products">
                             <div class="p-img">
                                 <span class="sale">Sale</span>
-                                <a href="/view/details.jsp"><img src="${p.img}" height="220" width="220" alt=""></a>
+                                <a href="/home?action=showProduct&id_product=${p.id}"><img src="${p.img}" height="220" width="220" alt=""></a>
                             </div>
                             <div class="p-footer">
-                                <h6><a href="/view/details.jsp"> ${p.name} </a>
+                                <h6><a href="/home?action=showProduct&id_product=${p.id}"> ${p.name} </a>
 
                                     <div class="rate">
                                         <div style="width: 80%;"></div>
@@ -177,15 +177,19 @@
                                     <div class="p-footer-price clearfix">
                                         <span class="price"> $15.99 </span>
                                         <span class="price-new"> ${p.price} </span>
-                                        <a href="/view/cart.jsp" class="right add-cart"> Add to cart </a>
+                                        <a href="/home?action=addProductToCart&id_product=${p.id}" class="right add-cart"> Add to cart </a>
                                     </div>
                                 </h6>
                             </div>
                         </div>
                     </div>
                 </c:forEach>
-
-
+            </div>
+                <div>
+                    <c:forEach begin="1" end="${page}" var="p">
+                        <button class="pagination"><a href="/page?index=${p}">Page ${p} </a></button>
+                    </c:forEach>
+                </div>
                 <%--                <div class="products">--%>
                 <%--                    <div class="p-img">--%>
                 <%--                        <a href="/details.jsp"><img src="https://jemcloset.com/wp-content/uploads/2021/01/1861X.jpg" height="220" width="220" alt=""></a>--%>

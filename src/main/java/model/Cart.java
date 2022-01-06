@@ -8,23 +8,26 @@ public class Cart {
     private String nameProduct;
     private double totalPrice;
     private int quantity;
+    private double price;
 
     public Cart(int idUser, int idProduct) {
         this.idUser = idUser;
         this.idProduct = idProduct;
     }
 
+    public Cart(int idProduct) {
+        this.idProduct = idProduct;
+    }
+
     public Cart() {
     }
 
-    public Cart(int idUser, int idProduct, String nameUser, String nameProduct) {
+    public Cart(int id, int idUser, int idProduct, int quantity) {
+        this.id = id;
         this.idUser = idUser;
         this.idProduct = idProduct;
-        this.nameUser = nameUser;
-        this.nameProduct = nameProduct;
+        this.quantity = quantity;
     }
-
-
 
     public Cart(String nameUser, String nameProduct, Double totalPrice) {
         this.nameUser = nameUser;
@@ -39,6 +42,8 @@ public class Cart {
         this.nameProduct = nameProduct;
         this.totalPrice = totalPrice;
     }
+
+
 
     public Cart(int id, int idUser, int idProduct, String nameUser, String nameProduct, double totalPrice, int quantity) {
         this.id = id;
@@ -104,5 +109,13 @@ public class Cart {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

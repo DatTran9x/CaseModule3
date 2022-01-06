@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class Add {
     private static final UserService userService = new UserService();
@@ -42,7 +43,7 @@ public class Add {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
-        int quantity = Integer.parseInt("quantity");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
         String img = request.getParameter("img");
         String category = request.getParameter("category");
         boolean status = quantity != 0;
@@ -72,12 +73,12 @@ public class Add {
     }
 
     void addProductToCart(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        int user_id = Integer.parseInt(request.getParameter("user_id"));
-        int product_id = Integer.parseInt(request.getParameter("product_id"));
-        Cart cart = new Cart(user_id,product_id);
+        int product_id = Integer.parseInt(request.getParameter("id_product"));
+        Cart cart = new Cart(product_id);
         cartService.saveCart(cart);
+        List<Product> list = productService.findAllProduct();
+        request.setAttribute("list",cartService.findAllCart());
         request.setAttribute("cart",cartService.findAllCart());
-        RequestDispatcher rd = request.getRequestDispatcher("/view/addProductToCart.jsp");
-        rd.forward(request,response);
+        response.sendRedirect("/cart");
     }
 }
